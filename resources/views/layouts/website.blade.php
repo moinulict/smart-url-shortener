@@ -5,14 +5,18 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    
-    <title>Logis Bootstrap Template - Index</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    @yield('meta')
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="icon" type="image/png" href="assets/img/favicon-16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
+    <link rel="icon" type="image/png" href="assets/img/favicon-64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="assets/img/favicon-128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="assets/img/favicon-192.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/img/favicon-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
