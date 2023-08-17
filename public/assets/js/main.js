@@ -154,8 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   function isValidDomain(url) {
-    // Regular expression to match a valid domain name
-    var regex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
+    var regex = /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/?([^\s]*)$/;
 
     return regex.test(url);
   }
