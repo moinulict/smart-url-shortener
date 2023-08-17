@@ -28,3 +28,4 @@ Route::get('/terms', function () {
 Route::get('/privacy-policy', function () {
     return view('front.privacy');
 });
+Route::post('/generateShortenUrl', 'FrontController@generateShortenUrl');

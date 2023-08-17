@@ -8,6 +8,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
 
+  const baseUrl = $('meta[name="baseUrl"]').attr('content');
   /**
    * Preloader
    */
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const scrollTop = document.querySelector('.scroll-top');
   if (scrollTop) {
-    const togglescrollTop = function() {
+    const togglescrollTop = function () {
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
     window.addEventListener('load', togglescrollTop);
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNavHide = document.querySelector('.mobile-nav-hide');
 
   document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       event.preventDefault();
       mobileNavToogle();
     })
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
 
   navDropdowns.forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       if (document.querySelector('.mobile-nav-active')) {
         event.preventDefault();
         this.classList.toggle('active');
@@ -146,8 +147,42 @@ document.addEventListener('DOMContentLoaded', () => {
       mirror: false
     });
   }
+
   window.addEventListener('load', () => {
     aos_init();
+  });
+
+
+  const urlGenForm = document.querySelector('#urlGenForm');
+  urlGenForm.addEventListener('submit', () => {
+    $('.errorMsg').hide();
+    const longUrl = $('.longUrl').val();
+    if (!longUrl.trim()){
+      $('.errorMsg').html('Long URL required').show();
+    }
+  
+    $.ajax({
+        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        type: "POST",
+        url: baseUrl + '/generateShortenUrl',
+        data: "longUrl=" + longUrl,
+        success: function (response) {
+            console.log(response);
+            var html = '';
+            if (response.length > 0) {
+                html += '<option value="">Select Item</option>';
+                for (var item in response) {
+                    html += '<option class="item-' + response[item]['item_id'] + '" value="' + response[item]['item_id'] + '" data-stock="' + response[item]['qty'] + '" data-poid="' + response[item]['po_id'] + '" data-costprice="' + response[item]['cost_price'] + '" data-name="' + response[item]['name'] + '">' + response[item]['name'] + '(PO:' + response[item]['po_id'] + '~Q:' + response[item]['qty'] + ')</option>';
+                }
+            } else {
+                html += '<option value="">Item not found</option>';
+            }
+
+            $(".itemContainer").show();
+            $("[name=item_id]").html(html);
+        }
+    });
+      
   });
 
 });

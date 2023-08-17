@@ -17,9 +17,10 @@
                         Simplify your URL sharing process and unlock the potential of your online presence with URLGEN.
                       </p>
 
-                      <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
+                      <div class="alert alert-danger none errorMsg"></div>
+                      <form action="" id="urlGenForm" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
                           data-aos-delay="200">
-                          <input type="text" class="form-control" placeholder="Please enter your long link here">
+                          <input type="text" class="form-control longUrl" placeholder="Please enter your long link here">
                           <button type="submit" class="btn btn-primary">Generate</button>
                       </form>
 

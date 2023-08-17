@@ -1919,3 +1919,6 @@ section {
 .footer .credits a {
   color: #fff;
 }
+.none{
+  display: none;
+}
