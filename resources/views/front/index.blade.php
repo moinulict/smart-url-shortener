@@ -24,6 +24,8 @@
                           <button type="submit" class="btn btn-primary">Generate</button>
                       </form>
 
+                      <div class="urlGenResponse none pr"></div>
+
                       {{-- <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
 
                           <div class="col-lg-3 col-6">

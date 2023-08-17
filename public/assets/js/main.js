@@ -153,36 +153,85 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
+  function isValidDomain(url) {
+    // Regular expression to match a valid domain name
+    var regex = /^(https?:\/\/)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}$/;
+
+    return regex.test(url);
+  }
+
+
   const urlGenForm = document.querySelector('#urlGenForm');
-  urlGenForm.addEventListener('submit', () => {
+  urlGenForm.addEventListener('submit', (e) => {
+    e.preventDefault();
     $('.errorMsg').hide();
     const longUrl = $('.longUrl').val();
-    if (!longUrl.trim()){
+    if (!longUrl.trim()) {
       $('.errorMsg').html('Long URL required').show();
+      return false;
     }
-  
-    $.ajax({
-        headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        type: "POST",
-        url: baseUrl + '/generateShortenUrl',
-        data: "longUrl=" + longUrl,
-        success: function (response) {
-            console.log(response);
-            var html = '';
-            if (response.length > 0) {
-                html += '<option value="">Select Item</option>';
-                for (var item in response) {
-                    html += '<option class="item-' + response[item]['item_id'] + '" value="' + response[item]['item_id'] + '" data-stock="' + response[item]['qty'] + '" data-poid="' + response[item]['po_id'] + '" data-costprice="' + response[item]['cost_price'] + '" data-name="' + response[item]['name'] + '">' + response[item]['name'] + '(PO:' + response[item]['po_id'] + '~Q:' + response[item]['qty'] + ')</option>';
-                }
-            } else {
-                html += '<option value="">Item not found</option>';
-            }
 
-            $(".itemContainer").show();
-            $("[name=item_id]").html(html);
+    if (!isValidDomain(longUrl.trim())) {
+      $('.errorMsg').html('Long URL seems not valid.').show();
+      return false;
+    }
+
+    $.ajax({
+      headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+      type: "POST",
+      url: baseUrl + '/generateShortenUrl',
+      data: "longUrl=" + longUrl,
+      success: function (response) {
+        console.log(response);
+        let html = ``;
+        if (response.status) {
+          html += `<div for="" class="mb-2">Generated URL</div>`;
+          html += `<span class="mb-2 copyMsg none text-success font-weight-bold">Copied</span>`;
+          html += `<div class="input-group mb-3">`;
+          html += `<input type="text" class="form-control urlGenUrl" placeholder="URLGEN short url" aria-label="Username" aria-describedby="basic-addon1" value="${response.data.short_url}">`;
+          html += `<span class="input-group-text bg-primary" id="basic-addon1">`;
+          html += `<a href="javascript:;" class="text-white copyBtn">`;
+          html += `<i class="fa-solid fa-copy "></i> Copy URL`;
+          html += `</a>`;
+          html += `</span>  `;
+          html += `</div>`;
+
+          html += `<div>`;
+          html += `<a href="${response.data.short_url}" target="_blank" class="btn btn-success btn-sm" title="Visit Site"><i class="fa-solid fa-diamond-turn-right"></i> Visit</a>`;
+          html += `<button class="btn btn-info btn-sm mx-1" title="Share Generated URL"><i class="fa-solid fa-share-nodes"></i> Share</button>`;
+          html += `<button class="btn btn-primary btn-sm" title="Generate QR"><i class="fa-solid fa-qrcode"></i> QR</button>`;
+          html += `</div>`;
+        } else {
+          html += `<div class="alert alert-danger">${response.message}</div>`;
         }
+
+        $(".urlGenResponse").html(html).show();
+      }
     });
-      
+
   });
 
+});
+
+$(document).on("click", ".copyBtn", function () {
+  const textToCopy = $(".urlGenUrl").val();
+  if (textToCopy) {
+    // Create a temporary textarea element
+    var textarea = document.createElement("textarea");
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+
+    // Select the text and copy it to the clipboard
+    textarea.select();
+    document.execCommand("copy");
+
+    // Remove the temporary textarea
+    document.body.removeChild(textarea);
+
+    var messageDiv = $('.copyMsg');
+    messageDiv.show();
+    setTimeout(function () {
+      messageDiv.hide();
+    }, 5000);
+  }
 });

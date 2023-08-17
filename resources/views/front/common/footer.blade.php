@@ -58,7 +58,7 @@
     <div class="container">
       <div class="copyright">
         Copyright &copy; <strong><span>URLGEN</span></strong>. All Rights Reserved. 
-        <a href="{{ url('/terms') }}">Terms</a> | <a href="{{ url('/privacy-policy') }}">Privacy Policy</a>
+        <a href="{{ url('/page/terms') }}">Terms</a> | <a href="{{ url('/page/privacy-policy') }}">Privacy Policy</a>
       </div>
     </div>
 

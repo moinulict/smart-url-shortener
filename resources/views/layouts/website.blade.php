@@ -9,15 +9,15 @@
     @yield('meta')
 
     <!-- Favicons -->
-    <link rel="icon" type="image/png" href="assets/img/favicon-16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="assets/img/favicon-48.png" sizes="48x48">
-    <link rel="icon" type="image/png" href="assets/img/favicon-64.png" sizes="64x64">
-    <link rel="icon" type="image/png" href="assets/img/favicon-128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="assets/img/favicon-192.png" sizes="192x192">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon-152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="assets/img/favicon-167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png">
+    <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-48.png" sizes="48x48">
+    <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-192.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ url('/') }}/assets/img/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="{{ url('/') }}/assets/img/favicon-167.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('/') }}/assets/img/favicon-180.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,15 +27,15 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/vendor/aos/aos.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/css/main.css" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: Logis
@@ -60,16 +60,16 @@
 
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="{{ url('/') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url('/') }}/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="{{ url('/') }}/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="{{ url('/') }}/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="{{ url('/') }}/assets/vendor/aos/aos.js"></script>
+    <script src="{{ url('/') }}/assets/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="{{ url('/') }}/assets/js/main.js"></script>
 
 </body>
 

@@ -15,10 +15,10 @@ class CreateUrlGensTable extends Migration
     {
         Schema::create('url_gens', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->text('long_url');
             $table->string('short_url', 24);
-            $table->string('unique_id', 5);
+            $table->string('unique_id', 6);
             $table->string('ip', 45);
             $table->timestamps();
         });

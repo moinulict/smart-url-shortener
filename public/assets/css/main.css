@@ -1922,3 +1922,13 @@ section {
 .none{
   display: none;
 }
+.pr{
+  position: relative;
+}
+.copyMsg{
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  font-style: italic;
+  font-weight: bold;
+}
