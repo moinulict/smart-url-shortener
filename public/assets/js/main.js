@@ -195,10 +195,18 @@ document.addEventListener('DOMContentLoaded', () => {
           html += `</span>  `;
           html += `</div>`;
 
-          html += `<div>`;
+          html += `<div class="pr">`;
           html += `<a href="${response.data.short_url}" target="_blank" class="btn btn-success btn-sm" title="Visit Site"><i class="fa-solid fa-diamond-turn-right"></i> Visit</a>`;
-          html += `<button class="btn btn-info btn-sm mx-1" title="Share Generated URL"><i class="fa-solid fa-share-nodes"></i> Share</button>`;
-          html += `<button class="btn btn-primary btn-sm" title="Generate QR"><i class="fa-solid fa-qrcode"></i> QR</button>`;
+          html += `<button class="btn btn-info btn-sm mx-1 btnShare" title="Share Generated URL"><i class="fa-solid fa-share-nodes"></i> Share</button>`;
+          html += `<ul class="shareMenu">`;
+          html += `<li><a href="" class="facebook"><i class="bi bi-facebook"></i> <span>Facebook</span></a></li>`;
+          html += `<li><a href="" class="whatsapp"><i class="bi bi-whatsapp"></i> <span>WhatsApp</span></a></li>`;
+          html += `<li><a href="" class="twitter"><i class="bi bi-twitter"></i> <span>Twitter</span></a></li>`;
+          html += `<li><a href="" class="linkedin"><i class="bi bi-linkedin"></i> <span>Linkedin</span></a></li>`;
+          html += `<li><a href="" class="pinterest"><i class="bi bi-pinterest"></i> <span>Pinterest</span></a></li>`;
+          html += `<li><a href="" class="envelope"><i class="bi bi-envelope"></i> <span>Envelope</span></a></li>`;
+          html += `</ul>`;
+          // html += `<button class="btn btn-primary btn-sm" title="Generate QR"><i class="fa-solid fa-qrcode"></i> QR</button>`;
           html += `</div>`;
         } else {
           html += `<div class="alert alert-danger">${response.message}</div>`;
@@ -234,3 +242,8 @@ $(document).on("click", ".copyBtn", function () {
     }, 5000);
   }
 });
+
+$(document).on("click", ".btnShare", function () {
+  $(".shareMenu").toggle();
+});
+

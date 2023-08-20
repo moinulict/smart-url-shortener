@@ -1932,3 +1932,24 @@ section {
   font-style: italic;
   font-weight: bold;
 }
+/*********************share*********************/
+.shareMenu{
+  list-style: none;
+  background-color: #fff;
+  width: max-content;
+  margin: 0;
+  padding: 7px 0px 10px 0px;
+  display: none;
+  position: absolute;
+  top: 35px;
+}
+.shareMenu li{
+  margin-top: 5px;
+}
+.shareMenu li a{
+  border-radius: 2px;
+  padding: 3px 10px;
+}
+.shareMenu li a span{
+  color: #212529;
+}
