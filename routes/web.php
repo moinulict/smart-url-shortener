@@ -16,15 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('front.index');
 });
-Route::get('/about', function () {
+Route::get('/{uniqueId}', 'FrontController@redirectToLongUrl');
+Route::get('/page/about', function () {
     return view('front.about');
 });
-Route::get('/contact', function () {
+Route::get('/page/contact', function () {
     return view('front.contact');
 });
-Route::get('/terms', function () {
+Route::get('/page/terms', function () {
     return view('front.terms');
 });
-Route::get('/privacy-policy', function () {
+Route::get('/page/privacy-policy', function () {
     return view('front.privacy');
 });
+Route::post('/generateShortenUrl', 'FrontController@generateShortenUrl');

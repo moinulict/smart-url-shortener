@@ -17,11 +17,14 @@
                         Simplify your URL sharing process and unlock the potential of your online presence with URLGEN.
                       </p>
 
-                      <form action="#" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
+                      <div class="alert alert-danger none errorMsg"></div>
+                      <form action="" id="urlGenForm" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up"
                           data-aos-delay="200">
-                          <input type="text" class="form-control" placeholder="Please enter your long link here">
+                          <input type="text" class="form-control longUrl" placeholder="Please enter your long link here">
                           <button type="submit" class="btn btn-primary">Generate</button>
                       </form>
+
+                      <div class="urlGenResponse none pr"></div>
 
                       {{-- <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
 
@@ -60,7 +63,7 @@
                       </div> --}}
                   </div>
 
-                  <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+                  <div class="col-lg-5 order-1 order-lg-2 hero-img d-none d-lg-block" data-aos="zoom-out">
                       <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0" alt="">
                   </div>
 

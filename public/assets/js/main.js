@@ -8,6 +8,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
 
+  const baseUrl = $('meta[name="baseUrl"]').attr('content');
   /**
    * Preloader
    */
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   const scrollTop = document.querySelector('.scroll-top');
   if (scrollTop) {
-    const togglescrollTop = function() {
+    const togglescrollTop = function () {
       window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
     window.addEventListener('load', togglescrollTop);
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNavHide = document.querySelector('.mobile-nav-hide');
 
   document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       event.preventDefault();
       mobileNavToogle();
     })
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
 
   navDropdowns.forEach(el => {
-    el.addEventListener('click', function(event) {
+    el.addEventListener('click', function (event) {
       if (document.querySelector('.mobile-nav-active')) {
         event.preventDefault();
         this.classList.toggle('active');
@@ -146,8 +147,103 @@ document.addEventListener('DOMContentLoaded', () => {
       mirror: false
     });
   }
+
   window.addEventListener('load', () => {
     aos_init();
   });
 
+
+  function isValidDomain(url) {
+    var regex = /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/?([^\s]*)$/;
+
+    return regex.test(url);
+  }
+
+
+  const urlGenForm = document.querySelector('#urlGenForm');
+  urlGenForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    $('.errorMsg').hide();
+    const longUrl = $('.longUrl').val();
+    if (!longUrl.trim()) {
+      $('.errorMsg').html('Long URL required').show();
+      return false;
+    }
+
+    if (!isValidDomain(longUrl.trim())) {
+      $('.errorMsg').html('Long URL seems not valid.').show();
+      return false;
+    }
+
+    $.ajax({
+      headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+      type: "POST",
+      url: baseUrl + '/generateShortenUrl',
+      data: "longUrl=" + longUrl,
+      success: function (response) {
+        console.log(response);
+        let html = ``;
+        if (response.status) {
+          html += `<div for="" class="mb-2">Generated URL</div>`;
+          html += `<span class="mb-2 copyMsg none text-success font-weight-bold">Copied</span>`;
+          html += `<div class="input-group mb-3">`;
+          html += `<input type="text" class="form-control urlGenUrl" placeholder="URLGEN short url" aria-label="Username" aria-describedby="basic-addon1" value="${response.data.short_url}">`;
+          html += `<span class="input-group-text bg-primary" id="basic-addon1">`;
+          html += `<a href="javascript:;" class="text-white copyBtn">`;
+          html += `<i class="fa-solid fa-copy "></i> Copy URL`;
+          html += `</a>`;
+          html += `</span>  `;
+          html += `</div>`;
+
+          html += `<div class="pr">`;
+          html += `<a href="${response.data.short_url}" target="_blank" class="btn btn-success btn-sm" title="Visit Site"><i class="fa-solid fa-diamond-turn-right"></i> Visit</a>`;
+          html += `<button class="btn btn-info btn-sm mx-1 btnShare" title="Share Generated URL"><i class="fa-solid fa-share-nodes"></i> Share</button>`;
+          html += `<ul class="shareMenu">`;
+          html += `<li><a href="" class="facebook"><i class="bi bi-facebook"></i> <span>Facebook</span></a></li>`;
+          html += `<li><a href="" class="whatsapp"><i class="bi bi-whatsapp"></i> <span>WhatsApp</span></a></li>`;
+          html += `<li><a href="" class="twitter"><i class="bi bi-twitter"></i> <span>Twitter</span></a></li>`;
+          html += `<li><a href="" class="linkedin"><i class="bi bi-linkedin"></i> <span>Linkedin</span></a></li>`;
+          html += `<li><a href="" class="pinterest"><i class="bi bi-pinterest"></i> <span>Pinterest</span></a></li>`;
+          html += `<li><a href="" class="envelope"><i class="bi bi-envelope"></i> <span>Envelope</span></a></li>`;
+          html += `</ul>`;
+          // html += `<button class="btn btn-primary btn-sm" title="Generate QR"><i class="fa-solid fa-qrcode"></i> QR</button>`;
+          html += `</div>`;
+        } else {
+          html += `<div class="alert alert-danger">${response.message}</div>`;
+        }
+
+        $(".urlGenResponse").html(html).show();
+      }
+    });
+
+  });
+
 });
+
+$(document).on("click", ".copyBtn", function () {
+  const textToCopy = $(".urlGenUrl").val();
+  if (textToCopy) {
+    // Create a temporary textarea element
+    var textarea = document.createElement("textarea");
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+
+    // Select the text and copy it to the clipboard
+    textarea.select();
+    document.execCommand("copy");
+
+    // Remove the temporary textarea
+    document.body.removeChild(textarea);
+
+    var messageDiv = $('.copyMsg');
+    messageDiv.show();
+    setTimeout(function () {
+      messageDiv.hide();
+    }, 5000);
+  }
+});
+
+$(document).on("click", ".btnShare", function () {
+  $(".shareMenu").toggle();
+});
+
