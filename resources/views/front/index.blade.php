@@ -1,8 +1,8 @@
   @extends('layouts.website')
   @section('meta')
-  <title>Free shorten URL generator from long URL</title>
-  <meta content="Free shorten URL generator from long URL." name="description">
-  <meta content="Free shorten URL generator from long URL." name="keywords">
+  <title>Unlock the Power of a Free URL Shortener Tool: Streamline Your Links</title>
+  <meta content="Discover the convenience of a free URL shortener tool. Effortlessly shrink and manage your links for improved online efficiency. Click to learn more!" name="description">
+  <meta content="Free URL Shortener" name="keywords">
   @stop
   @section('contents')
       <!-- ======= Hero Section ======= -->
@@ -61,10 +61,6 @@
                           </div><!-- End Stats Item -->
 
                       </div> --}}
-                  </div>
-
-                  <div class="col-lg-5 order-1 order-lg-2 hero-img d-none d-lg-block" data-aos="zoom-out">
-                      <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0" alt="">
                   </div>
 
               </div>

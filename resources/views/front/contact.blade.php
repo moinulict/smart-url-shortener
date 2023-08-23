@@ -1,8 +1,8 @@
   @extends('layouts.website')
   @section('meta')
-  <title>Contact | Free shorten URL generator from long URL</title>
-  <meta content="Free shorten URL generator from long URL." name="description">
-  <meta content="Free shorten URL generator from long URL." name="keywords">
+  <title>Contact</title>
+  <meta content="Have questions or feedback? Contact us today for prompt assistance and support. Your voice matters to us!" name="description">
+  <meta content="Contact" name="keywords">
   @stop
   @section('contents')
       <main id="main">

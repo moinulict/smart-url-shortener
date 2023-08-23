@@ -1,8 +1,8 @@
   @extends('layouts.website')
   @section('meta')
-  <title>About : Free shorten URL generator from long URL</title>
-  <meta content="Free shorten URL generator from long URL." name="description">
-  <meta content="Free shorten URL generator from long URL." name="keywords">
+  <title>About</title>
+  <meta content="Explore our history and mission to serve you." name="description">
+  <meta content="About" name="keywords">
   @stop
   @section('contents')
       <main id="main">
@@ -38,6 +38,11 @@
                       in revolutionizing the way you share links – experience URLGEN today and take the first step towards a
                       more streamlined online presence.
                   </p>
+
+                  <p class="text-muted mb-4">Have questions, suggestions, or feedback? We'd love to hear from you!
+                    Contact our dedicated support team at <a href="mailto:engrminul@gmail.com">engrminul@gmail.com</a> or connect with us on [Need the
+                    links and platform names] for the latest updates and inspiration.
+                </p>
 
               </div>
           </section><!-- End Featured Services Section -->

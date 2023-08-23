@@ -636,7 +636,6 @@ section {
   font-weight: 700;
   font-size: 32px;
   font-family: var(--font-secondary);
-  color: #001f8d;
 }
 
 .about .content ul {
@@ -647,7 +646,7 @@ section {
 .about .content ul li {
   display: flex;
   align-items: flex-start;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 .about .content ul i {

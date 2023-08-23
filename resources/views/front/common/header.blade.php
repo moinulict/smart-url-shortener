@@ -13,9 +13,9 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="{{ url('/') }}" class="active">Home</a></li>
-          <li><a href="{{ url('/page/about') }}">About</a></li>
-          <li><a href="javascript:;">My GEN URLs</a></li>
-          <li><a href="{{ url('/page/contact') }}">Contact</a></li>
+          <li><a href="{{ url('/about') }}">About</a></li>
+          {{-- <li><a href="javascript:;">My GEN URLs</a></li> --}}
+          <li><a href="{{ url('/contact') }}">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 
