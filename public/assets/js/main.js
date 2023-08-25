@@ -1,20 +1,20 @@
 /**
-* Template Name: Logis
-* Updated: Jul 27 2023 with Bootstrap v5.3.1
-* Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-document.addEventListener('DOMContentLoaded', () => {
+ * Template Name: Logis
+ * Updated: Jul 27 2023 with Bootstrap v5.3.1
+ * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
+document.addEventListener("DOMContentLoaded", () => {
   "use strict";
 
-  const baseUrl = $('meta[name="baseUrl"]').attr('content');
+  const baseUrl = $('meta[name="baseUrl"]').attr("content");
   /**
    * Preloader
    */
-  const preloader = document.querySelector('#preloader');
+  const preloader = document.querySelector("#preloader");
   if (preloader) {
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
       preloader.remove();
     });
   }
@@ -33,73 +33,78 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Scroll top button
    */
-  const scrollTop = document.querySelector('.scroll-top');
+  const scrollTop = document.querySelector(".scroll-top");
   if (scrollTop) {
     const togglescrollTop = function () {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
-    window.addEventListener('load', togglescrollTop);
-    document.addEventListener('scroll', togglescrollTop);
-    scrollTop.addEventListener('click', window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    }));
+      window.scrollY > 100
+        ? scrollTop.classList.add("active")
+        : scrollTop.classList.remove("active");
+    };
+    window.addEventListener("load", togglescrollTop);
+    document.addEventListener("scroll", togglescrollTop);
+    scrollTop.addEventListener(
+      "click",
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      })
+    );
   }
 
   /**
    * Mobile nav toggle
    */
-  const mobileNavShow = document.querySelector('.mobile-nav-show');
-  const mobileNavHide = document.querySelector('.mobile-nav-hide');
+  const mobileNavShow = document.querySelector(".mobile-nav-show");
+  const mobileNavHide = document.querySelector(".mobile-nav-hide");
 
-  document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
-    el.addEventListener('click', function (event) {
+  document.querySelectorAll(".mobile-nav-toggle").forEach((el) => {
+    el.addEventListener("click", function (event) {
       event.preventDefault();
       mobileNavToogle();
-    })
+    });
   });
 
   function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavShow.classList.toggle('d-none');
-    mobileNavHide.classList.toggle('d-none');
+    document.querySelector("body").classList.toggle("mobile-nav-active");
+    mobileNavShow.classList.toggle("d-none");
+    mobileNavHide.classList.toggle("d-none");
   }
 
   /**
    * Hide mobile nav on same-page/hash links
    */
-  document.querySelectorAll('#navbar a').forEach(navbarlink => {
-
+  document.querySelectorAll("#navbar a").forEach((navbarlink) => {
     if (!navbarlink.hash) return;
 
     let section = document.querySelector(navbarlink.hash);
     if (!section) return;
 
-    navbarlink.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
+    navbarlink.addEventListener("click", () => {
+      if (document.querySelector(".mobile-nav-active")) {
         mobileNavToogle();
       }
     });
-
   });
 
   /**
    * Toggle mobile nav dropdowns
    */
-  const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
+  const navDropdowns = document.querySelectorAll(".navbar .dropdown > a");
 
-  navDropdowns.forEach(el => {
-    el.addEventListener('click', function (event) {
-      if (document.querySelector('.mobile-nav-active')) {
+  navDropdowns.forEach((el) => {
+    el.addEventListener("click", function (event) {
+      if (document.querySelector(".mobile-nav-active")) {
         event.preventDefault();
-        this.classList.toggle('active');
-        this.nextElementSibling.classList.toggle('dropdown-active');
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("dropdown-active");
 
-        let dropDownIndicator = this.querySelector('.dropdown-indicator');
-        dropDownIndicator.classList.toggle('bi-chevron-up');
-        dropDownIndicator.classList.toggle('bi-chevron-down');
+        let dropDownIndicator = this.querySelector(
+          ".dropdown-indicator"
+        );
+        dropDownIndicator.classList.toggle("bi-chevron-up");
+        dropDownIndicator.classList.toggle("bi-chevron-down");
       }
-    })
+    });
   });
 
   /**
@@ -152,33 +157,57 @@ document.addEventListener('DOMContentLoaded', () => {
   //   aos_init();
   // });
 
-
   function isValidDomain(url) {
-    var regex = /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/?([^\s]*)$/;
+    var regex =
+      /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/?([^\s]*)$/;
 
     return regex.test(url);
   }
 
+  const urlGenBtn = document.querySelector(".urlGenBtn");
+  urlGenBtn.addEventListener("click", (e) => {
+    var isReadonly = $(".longUrl").prop("readonly");
+    if (isReadonly) {
+      e.preventDefault();
+      $('.longUrl').removeAttr("readonly").val("");
+      $(".urlGenResponse").hide();
+      $("#urlGenForm .urlGenBtn").prop("type", "submit");
+    }
+  });
 
-  const urlGenForm = document.querySelector('#urlGenForm');
-  urlGenForm.addEventListener('submit', (e) => {
+  const urlGenForm = document.querySelector("#urlGenForm");
+  urlGenForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    $('.errorMsg').hide();
-    const longUrl = $('.longUrl').val();
+
+    var isInputReadonly = $(".longUrl").prop("readonly");
+    if (isInputReadonly) {
+      return false;
+    }
+
+    $(".errorMsg").hide();
+    const longUrl = $(".longUrl").val();
     if (!longUrl.trim()) {
-      $('.errorMsg').html('Long URL required').show();
+      $(".errorMsg").html("Long URL required").show();
       return false;
     }
 
     if (!isValidDomain(longUrl.trim())) {
-      $('.errorMsg').html('Long URL seems not valid.').show();
+      $(".errorMsg").html("Long URL seems not valid.").show();
       return false;
     }
 
+    $("#urlGenForm .urlGenBtn .btn-text").hide();
+    $("#urlGenForm .urlGenBtn .loader")
+      .removeClass("hidden")
+      .addClass("shown");
+    $("#urlGenForm .urlGenBtn").prop("disabled", true);
+
     $.ajax({
-      headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+      headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+      },
       type: "POST",
-      url: baseUrl + '/generateShortenUrl',
+      url: baseUrl + "/generateShortenUrl",
       data: "longUrl=" + longUrl,
       success: function (response) {
         console.log(response);
@@ -213,11 +242,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         $(".urlGenResponse").html(html).show();
-      }
+
+        $("#urlGenForm .longUrl").prop("readonly", true);
+        $("#urlGenForm .urlGenBtn .btn-text")
+          .html("Generate another")
+          .show();
+        $("#urlGenForm .urlGenBtn .loader")
+          .removeClass("shown")
+          .addClass("hidden");
+        $("#urlGenForm .urlGenBtn")
+          .prop("type", "button")
+          .prop("disabled", false);
+      },
     });
-
   });
-
 });
 
 $(document).on("click", ".copyBtn", function () {
@@ -235,7 +273,7 @@ $(document).on("click", ".copyBtn", function () {
     // Remove the temporary textarea
     document.body.removeChild(textarea);
 
-    var messageDiv = $('.copyMsg');
+    var messageDiv = $(".copyMsg");
     messageDiv.show();
     setTimeout(function () {
       messageDiv.hide();
@@ -246,4 +284,3 @@ $(document).on("click", ".copyBtn", function () {
 $(document).on("click", ".btnShare", function () {
   $(".shareMenu").toggle();
 });
-

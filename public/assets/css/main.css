@@ -13,7 +13,7 @@
 /* Fonts */
 :root {
   --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-primary: "Inter", sans-serif;
+  --font-primary: "Arial", sans-serif;
   --font-secondary: "Poppins", sans-serif;
 }
 
@@ -33,7 +33,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: var(--font-default);
+  font-family: var(--font-primary);
   color: var(--color-default);
   background: #f4faff;
 }
@@ -573,6 +573,9 @@ section {
 /*--------------------------------------------------------------
 # Featured Services Section
 --------------------------------------------------------------*/
+.featured-services{
+  background: #fff;
+}
 .featured-services .service-item {
   position: relative;
   height: 100%;
@@ -1957,4 +1960,44 @@ section {
 }
 .genBox .form-control{
   padding: .8rem;
+  font-weight: bold;
+  color: #005263;
+  font-size: 1.1rem;
+}
+.loader {
+  border: 3px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 3px solid #3498db;
+  width: 25px;
+  height: 25px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  display: inline-block;
+  vertical-align: sub;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.hidden{
+  visibility: hidden;
+}
+.shown{
+  visibility: visible;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #3c3c3c;
+  letter-spacing: -1px;
+}
+.featured-services ul li{
+  margin: 4px 0px;
 }

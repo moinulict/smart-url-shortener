@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helper;
 use Illuminate\Http\Request;
-use App\Helpers\UniqueIdHelper;
 use App\Models\UrlGen;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
@@ -12,7 +12,7 @@ class FrontController extends Controller
 {
     public function generateShortenUrl(Request $request)
     {
-        $uniqueId = UniqueIdHelper::generate(6);
+        $uniqueId = Helper::generate(6);
 
         $data = [
             "long_url" => $request->longUrl,
@@ -27,6 +27,7 @@ class FrontController extends Controller
 
         return response()->json(['status' => 'success', 'message' => 'Something went wrong please try again later']);
     }
+
     public function redirectToLongUrl($uniqueId)
     {
         if (!$uniqueId) {

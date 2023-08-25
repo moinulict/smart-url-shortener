@@ -4,7 +4,7 @@ namespace App\Helpers;
 
 use Illuminate\Support\Facades\DB;
 
-class UniqueIdHelper
+class Helper
 {
     public static function generate($length = 5, $table = 'url_gens', $column = 'unique_id')
     {
