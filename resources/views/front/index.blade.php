@@ -86,4 +86,97 @@
   
         </div>
       </section>
+
+      <section id="faq" class="faq">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+  
+          <div class="section-header">
+            <span>Frequently Asked Questions</span>
+            <h2>Frequently Asked Questions</h2>
+  
+          </div>
+  
+          <div class="row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-10">
+  
+              <div class="accordion accordion-flush" id="faqlist">
+  
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
+                      <i class="bi bi-question-circle question-icon"></i>
+                      What is a URL shortener?
+                    </button>
+                  </h3>
+                  <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      A URL shortener is an online tool that transforms long and complex URLs into shorter, more manageable links that redirect to the original webpage.
+                    </div>
+                  </div>
+                </div><!-- # Faq item-->
+  
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
+                      <i class="bi bi-question-circle question-icon"></i>
+                      Why should I use a URL shortener?
+                    </button>
+                  </h3>
+                  <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      URL shorteners are useful for simplifying long links, making them easier to share on social media, in messages, and presentations, while also providing tracking and analytics features.
+                    </div>
+                  </div>
+                </div><!-- # Faq item-->
+  
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
+                      <i class="bi bi-question-circle question-icon"></i>
+                      Are shortened URLs through URLGEN safe to click on?
+                    </button>
+                  </h3>
+                  <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      Yes, we are reputaed shorten URL service provider with free of cost. 
+                    </div>
+                  </div>
+                </div><!-- # Faq item-->
+  
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
+                      <i class="bi bi-question-circle question-icon"></i>
+                      Can I customize shortened URLs?
+                    </button>
+                  </h3>
+                  <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      <i class="bi bi-question-circle question-icon"></i>
+                      URLGEN free URL shorteners offer customization options, allowing you to create branded or memorable short links that reflect your content or brand identity.
+                    </div>
+                  </div>
+                </div><!-- # Faq item-->
+  
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
+                      <i class="bi bi-question-circle question-icon"></i>
+                      Do shortened links expire?
+                    </button>
+                  </h3>
+                  <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                      The lifespan of shortened links through URLGEN right now 365 days. We clear shortend URLs from our server which are more than 365 days old automatically. If you need more live long URL please contact us.
+                    </div>
+                  </div>
+                </div><!-- # Faq item-->
+  
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+      </section>
   @stop
