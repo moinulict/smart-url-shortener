@@ -35,6 +35,7 @@
 body {
   font-family: var(--font-default);
   color: var(--color-default);
+  background: #f4faff;
 }
 
 a {
@@ -1701,13 +1702,12 @@ section {
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh;
   background-color: var(--color-secondary);
   background-image: url("../img/hero-bg.png");
   background-size: cover;
-  background-position: center;
+  background-position: center; */
   position: relative;
-  color: rgba(255, 255, 255, 0.8);
 }
 
 .hero h2 {
@@ -1715,7 +1715,6 @@ section {
   padding: 0;
   font-size: 48px;
   font-weight: 700;
-  color: #fff;
 }
 
 @media (max-width: 575px) {
@@ -1731,12 +1730,12 @@ section {
 }
 
 .hero form {
-  background: #fff;
   padding: 10px;
   border-radius: 10px;
 }
 
 .hero form .form-control {
+  color: #ffffff;
   padding-top: 18px;
   padding-bottom: 18px;
   padding-left: 20px;
@@ -1805,8 +1804,6 @@ section {
   background-color: var(--color-secondary);
   padding: 10px 0;
   color: white;
-  position: fixed;
-  width: 100%;
   bottom: 0;
 }
 
@@ -1951,4 +1948,13 @@ section {
 }
 .shareMenu li a span{
   color: #212529;
+}
+.genBox{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+}
+.genBox .form-control{
+  padding: .8rem;
 }
