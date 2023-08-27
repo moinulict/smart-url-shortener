@@ -32,14 +32,11 @@
 
                       <div class="urlGenResponse none pr"></div>
 
+
                   </div>
+
                 </div>
 
-
-                <div class="col-lg-6">
-
-                   
-                </div>
 
               </div>
 
@@ -54,30 +51,30 @@
             <div class="col-lg-12">
               <div class="text-center">
                 <h1 class="my-3">
-                  Experience the convenience of a free URL shortener to create compact and shareable links.
+                  Experience the convenience of a free URL shortener to create userfriendly and shareable links.
                 </h1>
-                <p>Using a URL shortener offers advantages for sharing links. <b>URLGEN</b> offering free shortening URL service, Why Use a URL Shortener?</p>
                  
               </div>
              
-              <ul>
+              <h3>Why Use a URL Shortener?</h3>
+              <ul class="why">
                 <li>
-                  <b>Convenience:</b> Shortened URLs are concise and easily shared, simplifying communication.
+                  <b>For Convenience:</b> Shortened URLs are concise and easily shared, simplifying communication.
                 </li>
                 <li>
-                  <b>Space:</b> Short URLs are great for character-limited platforms like social media.
+                  <b>For Space:</b> Short URLs are great for character-limited platforms like social media.
                 </li>
                 <li>
-                  <b>Memorability:</b> They're easy to remember and share verbally.
+                  <b>For Memorability:</b> They're easy to remember and share verbally.
                 </li>
                 <li>
-                  <b>Customization:</b> <b>URLGEN</b> lets you personalize short links for branding.
+                  <b>For Customization:</b> <b>URLGEN</b> lets you personalize short links for branding.
                 </li>
                 <li>
-                  <b>QR Codes:</b> They're perfect for embedding in QR codes.
+                  <b>For Sharing:</b> They're perfect for social sharing in Facebook, Twitter, LinkedIn, Youtube etc.
                 </li>
                 <li>
-                  <b>Campaigns:</b> Ideal for tracking marketing campaign effectiveness.
+                  <b>For Campaigns:</b> Ideal for tracking marketing campaign effectiveness.
                 </li>
                </ul>
             </div>
@@ -110,7 +107,7 @@
                   </h3>
                   <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                     <div class="accordion-body">
-                      A URL shortener is an online tool that transforms long and complex URLs into shorter, more manageable links that redirect to the original webpage.
+                      A URL shortener is an online tool like URLGEN that transforms long and complex URLs into shorter, more manageable links that redirect to your original webpage.
                     </div>
                   </div>
                 </div><!-- # Faq item-->
@@ -153,12 +150,12 @@
                   <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                     <div class="accordion-body">
                       <i class="bi bi-question-circle question-icon"></i>
-                      URLGEN free URL shorteners offer customization options, allowing you to create branded or memorable short links that reflect your content or brand identity.
+                      Sorry but We are working hard to provide this feature. We hope we will be able to allowing you to create branded or memorable short links that reflect your content or brand identity feasture shortly.
                     </div>
                   </div>
                 </div><!-- # Faq item-->
   
-                <div class="accordion-item">
+                {{-- <div class="accordion-item">
                   <h3 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
                       <i class="bi bi-question-circle question-icon"></i>
@@ -170,7 +167,7 @@
                       The lifespan of shortened links through URLGEN right now 365 days. We clear shortend URLs from our server which are more than 365 days old automatically. If you need more live long URL please contact us.
                     </div>
                   </div>
-                </div><!-- # Faq item-->
+                </div><!-- # Faq item--> --}}
   
               </div>
   

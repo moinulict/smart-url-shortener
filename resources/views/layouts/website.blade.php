@@ -22,7 +22,7 @@
 
     <!-- Vendor CSS Files -->
     <link href="{{ url('/') }}/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ url('/') }}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"> --}}
+    <link href="{{ url('/') }}/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="{{ url('/') }}/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     {{-- <link href="{{ url('/') }}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="{{ url('/') }}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -64,7 +64,7 @@
 
 
     <!-- Vendor JS Files -->
-    <script src="{{ url('/') }}/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ url('/') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     {{-- <script src="{{ url('/') }}/assets/vendor/purecounter/purecounter_vanilla.js"></script>
     <script src="{{ url('/') }}/assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="{{ url('/') }}/assets/vendor/swiper/swiper-bundle.min.js"></script>

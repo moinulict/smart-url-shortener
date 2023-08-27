@@ -213,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(response);
         let html = ``;
         if (response.status) {
+          const shortUrl = response.data.short_url;
           html += `<div for="" class="mb-2">Generated URL</div>`;
           html += `<span class="mb-2 copyMsg none text-success font-weight-bold">Copied</span>`;
           html += `<div class="input-group mb-3">`;
@@ -225,16 +226,20 @@ document.addEventListener("DOMContentLoaded", () => {
           html += `</div>`;
 
           html += `<div class="pr">`;
-          html += `<a href="${response.data.short_url}" target="_blank" class="btn btn-success btn-sm" title="Visit Site"><i class="fa-solid fa-diamond-turn-right"></i> Visit</a>`;
-          html += `<button class="btn btn-info btn-sm mx-1 btnShare" title="Share Generated URL"><i class="fa-solid fa-share-nodes"></i> Share</button>`;
-          html += `<ul class="shareMenu">`;
-          html += `<li><a href="" class="facebook"><i class="bi bi-facebook"></i> <span>Facebook</span></a></li>`;
-          html += `<li><a href="" class="whatsapp"><i class="bi bi-whatsapp"></i> <span>WhatsApp</span></a></li>`;
-          html += `<li><a href="" class="twitter"><i class="bi bi-twitter"></i> <span>Twitter</span></a></li>`;
-          html += `<li><a href="" class="linkedin"><i class="bi bi-linkedin"></i> <span>Linkedin</span></a></li>`;
-          html += `<li><a href="" class="pinterest"><i class="bi bi-pinterest"></i> <span>Pinterest</span></a></li>`;
-          html += `<li><a href="" class="envelope"><i class="bi bi-envelope"></i> <span>Envelope</span></a></li>`;
+          html += `<a href="${shortUrl}" target="_blank" class="btn btn-success btn-sm" title="Visit Site"><i class="fa-solid fa-diamond-turn-right"></i> Visit</a>`;
+          html += `<span class="dropdown btnShare">`;
+          html += `<button class="btn btn-info btn-sm mx-1 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">`;
+          html += `<i class="fa-solid fa-share-nodes"></i> Share`;
+          html += `</button>`;
+          html += `<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`;
+          html += `<li><a href="https://www.facebook.com/sharer/sharer.php?u=${shortUrl}" class="facebook" target="_blank"><i class="bi bi-facebook"></i> <span>Facebook</span></a></li>`;
+          html += `<li><a href="https://api.whatsapp.com/send?text=${shortUrl}" class="whatsapp" target="_blank"><i class="bi bi-whatsapp"></i> <span>WhatsApp</span></a></li>`;
+          html += `<li><a href="https://twitter.com/intent/tweet?url=${shortUrl}" class="twitter" target="_blank"><i class="bi bi-twitter"></i> <span>Twitter</span></a></li>`;
+          html += `<li><a href="https://www.linkedin.com/shareArticle?url=${shortUrl}" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i> <span>Linkedin</span></a></li>`;
+          html += `<li><a href="https://pinterest.com/pin/create/button/?url=${shortUrl}" class="pinterest" target="_blank"><i class="bi bi-pinterest"></i> <span>Pinterest</span></a></li>`;
+          html += `<li><a href="mailto:?subject=Share URLGEN on Email&body=:${shortUrl}" class="envelope" target="_blank"><i class="bi bi-envelope"></i> <span>Envelope</span></a></li>`;
           html += `</ul>`;
+          html += `</span>`;
           // html += `<button class="btn btn-primary btn-sm" title="Generate QR"><i class="fa-solid fa-qrcode"></i> QR</button>`;
           html += `</div>`;
         } else {

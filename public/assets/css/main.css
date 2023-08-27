@@ -117,6 +117,12 @@ section {
   z-index: 2;
 }
 
+@media (max-width: 991px) {
+  .featured-services {
+    padding: 40px 0px;
+}
+}
+
 @media (max-width: 640px) {
   .section-header h2 {
     font-size: 28px;
@@ -2000,4 +2006,31 @@ h1 {
 }
 .featured-services ul li{
   margin: 4px 0px;
+}
+#faqlist .accordion-item{
+  background: transparent;
+}
+.btnShare ul{
+  padding: 0;
+}
+.btnShare ul li a{
+  display: block;
+  border-bottom: 1px solid #f0f0f0;
+  border-collapse: collapse;
+  padding: 5px;
+  cursor: pointer;
+  color: #3c3c3c;
+}
+.btnShare ul li a:hover{
+  background: transparent;
+  color: var(--color-primary)
+}
+h3{
+  font-size: 20px;
+}
+.why{
+  padding: 5px 15px;
+}
+.required{
+  color: #ff0000;
 }

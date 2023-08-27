@@ -31,6 +31,7 @@ Route::get('/privacy-policy', function () {
 Route::get('/disclaimer', function () {
     return view('front.disclaimer');
 });
+Route::post('/contact', 'FrontController@postContact');
 
 Route::get('/{uniqueId}', 'FrontController@redirectToLongUrl');
 Route::post('/generateShortenUrl', 'FrontController@generateShortenUrl');

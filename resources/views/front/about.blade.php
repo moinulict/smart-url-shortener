@@ -40,7 +40,7 @@
                   </p>
 
                   <p class="text-muted mb-4">Have questions, suggestions, or feedback? We'd love to hear from you!
-                    Contact our dedicated support team at <a href="mailto:engrminul@gmail.com">engrminul@gmail.com</a> or connect with us on [Need the
+                    Contact our dedicated support team at <a href="mailto:contacturlgen@gmail.com">contacturlgen@gmail.com</a> or connect with us on [Need the
                     links and platform names] for the latest updates and inspiration.
                 </p>
 
