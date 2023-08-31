@@ -5,6 +5,12 @@
           content="Discover the convenience of a free URL shortener tool. Effortlessly shrink and manage your links for improved online efficiency. Click to learn more!"
           name="description">
       <meta content="Free URL Shortener" name="keywords">
+
+      <meta name="robots" content="index, follow" />
+      <meta name="author" content="urlgen.io" />
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   @stop
   @section('contents')
       <!-- ======= Hero Section ======= -->
