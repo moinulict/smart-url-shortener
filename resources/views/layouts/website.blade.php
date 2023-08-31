@@ -15,10 +15,10 @@
     <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-48.png" sizes="48x48">
     <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-64.png" sizes="64x64">
     <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-128.png" sizes="128x128">
+    <link rel="apple-touch-icon"  href="{{ url('/') }}/assets/img/favicon-152.png" sizes="152x152">
+    <link rel="apple-touch-icon" href="{{ url('/') }}/assets/img/favicon-167.png" sizes="167x167" >
+    <link rel="apple-touch-icon" href="{{ url('/') }}/assets/img/favicon-180.png" sizes="180x180" >
     <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-192.png" sizes="192x192">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ url('/') }}/assets/img/favicon-152.png">
-    <link rel="apple-touch-icon" sizes="167x167" href="{{ url('/') }}/assets/img/favicon-167.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url('/') }}/assets/img/favicon-180.png">
 
 
     <!-- Vendor CSS Files -->
