@@ -1,6 +1,6 @@
   @extends('layouts.website')
   @section('meta')
-      <title>Unlock the Power of a Free URL Shortener Tool: Streamline Your Links</title>
+      <title>Unlock the Power of a Free URL Shortener: Shorten Your Links</title>
       <meta
           content="Discover the convenience of a free URL shortener tool. Effortlessly shrink and manage your links for improved online efficiency. Click to learn more!"
           name="description">
