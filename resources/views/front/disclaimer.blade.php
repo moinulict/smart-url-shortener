@@ -14,7 +14,7 @@
                   <h1 class="h1-responsive font-weight-bold mb-2 text-center">Disclaimer for urlgen.io</h1>
                   <p class="text-muted mb-5">If you require any more information or have any questions
                       about our site's disclaimer, please feel free to contact us by email at
-                      contacturlgen@gmail.com.</p>
+                      <a href="mailto:contacturlgen@gmail.com">contacturlgen@gmail.com</a>.</p>
 
 
                   <h2 class="h1-responsive font-weight-bold mb-2">Disclaimers for urlgen.io</h2>
