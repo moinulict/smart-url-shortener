@@ -6,11 +6,9 @@
           name="description">
       <meta content="Free URL Shortener" name="keywords">
 
-      <meta name="robots" content="index, follow" />
-      <meta name="author" content="urlgen.io" />
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-      <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta property="og:title" content="Unlock the Power of a Free URL Shortener: Shorten Your Links" />
+      <meta property="og:description"
+          content="Discover the convenience of a free URL shortener tool. Effortlessly shrink and manage your links for improved online efficiency. Click to learn more!" />
   @stop
   @section('contents')
       <!-- ======= Hero Section ======= -->
@@ -60,7 +58,7 @@
               <div class="row gy-4">
 
                   <div class="col-lg-12">
-                      <div >
+                      <div>
                           <h1 class="my-3">
                               Experience the convenience of a free URL shortener to create userfriendly and shareable links.
                           </h1>

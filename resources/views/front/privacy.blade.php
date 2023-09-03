@@ -3,6 +3,9 @@
       <title>Privacy & Policy</title>
       <meta content="Our Privacy Policy ensures your data is safe with us. Learn how we protect your information. Your online security matters to us!" name="description">
       <meta content="Privacy & Policy" name="keywords">
+      <meta property="og:title" content="Privacy & Policy" />
+      <meta property="og:description"
+          content="Our Privacy Policy ensures your data is safe with us. Learn how we protect your information. Your online security matters to us!" />
   @stop
   @section('contents')
       <main id="main">

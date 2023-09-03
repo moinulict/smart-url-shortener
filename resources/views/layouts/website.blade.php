@@ -9,6 +9,18 @@
     <link rel="canonical" href="https://urlgen.io/">
     @yield('meta')
 
+    <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://urlgen.io/" />
+    <meta property="og:site_name" content="urlgen.io" />
+    <meta name="author" content="urlgen.io" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+    <meta property="og:image" content="{{ url('/') }}/assets/img/urlgen-long-url-to-short-url-social.jpeg" />
+    <meta name="twitter:image" content="{{ url('/') }}/assets/img/urlgen-long-url-to-short-url-social.jpeg">
+
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="{{ url('/') }}/assets/img/favicon-32.png" sizes="32x32">

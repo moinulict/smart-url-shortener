@@ -3,6 +3,9 @@
       <title>Disclaimer</title>
       <meta content="Read our disclaimer for important information regarding content, liability, and usage policies. Stay informed." name="description">
       <meta content="Disclaimer" name="keywords">
+      <meta property="og:title" content="Disclaimer" />
+      <meta property="og:description"
+          content="Read our disclaimer for important information regarding content, liability, and usage policies. Stay informed." />
   @stop
   @section('contents')
       <main id="main">

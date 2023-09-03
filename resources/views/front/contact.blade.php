@@ -5,6 +5,9 @@
           content="Have questions or feedback? Contact us today for prompt assistance and support. Your voice matters to us!"
           name="description">
       <meta content="Contact" name="keywords">
+      <meta property="og:title" content="Contact" />
+      <meta property="og:description"
+          content="Have questions or feedback? Contact us today for prompt assistance and support. Your voice matters to us!" />
   @stop
   @section('contents')
       <main id="main">

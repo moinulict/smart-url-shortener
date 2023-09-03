@@ -3,6 +3,9 @@
   <title>About</title>
   <meta content="Explore our history and mission to serve you." name="description">
   <meta content="About" name="keywords">
+  <meta property="og:title" content="About" />
+  <meta property="og:description"
+      content="Explore our history and mission to serve you." />
   @stop
   @section('contents')
       <main id="main">

@@ -3,6 +3,9 @@
       <title>Terms and Conditions</title>
       <meta content="Explore our terms and conditions to know our policies and guidelines. Transparency in every interaction is our commitment." name="description">
       <meta content="Terms and Conditions" name="keywords">
+      <meta property="og:title" content="Terms and Conditions" />
+      <meta property="og:description"
+          content="Explore our terms and conditions to know our policies and guidelines. Transparency in every interaction is our commitment." />
   @stop
   @section('contents')
       <main id="main">
