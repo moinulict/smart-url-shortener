@@ -75,6 +75,12 @@
                           ensuring that you can monitor the performance of your short links effortlessly.
                       </p>
 
+
+                      <div class="text-center">
+                          <img class="my-3 img-fluid" src="{{ url('/') }}/assets/img/Free-URL-Shortner-Banner.jpg"
+                              alt="Free URL Shortner Banner" title="Free URL Shortner Banner">
+                      </div>
+
                       <p>
                           Bitly is another well-known name in the URL shortening arena. However, URLgen.io competes
                           admirably
