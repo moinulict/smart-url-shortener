@@ -581,6 +581,7 @@ section {
 --------------------------------------------------------------*/
 .featured-services{
   background: #fff;
+  padding: 60px 0px;
 }
 .featured-services .service-item {
   position: relative;
