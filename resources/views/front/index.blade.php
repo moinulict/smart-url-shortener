@@ -30,8 +30,8 @@
                           <form action="" id="urlGenForm" class="form-search  mb-3" data-aos="fade-up"
                               data-aos-delay="200">
                               <div class="my-2">
-                                  <input type="text" class="form-control longUrl" placeholder="Enter your long link here"
-                                      autofocus>
+                                  <input type="text" class="form-control longUrl"
+                                      placeholder="Enter your long link here" autofocus>
                               </div>
                               <button type="submit" class="btn btn-primary btn-lg w-100 urlGenBtn">
                                   <span class="btn-text">Generate Shorten URL</span>
@@ -75,6 +75,11 @@
                           ensuring that you can monitor the performance of your short links effortlessly.
                       </p>
 
+
+                      <div class="text-center">
+                          <img class="my-3 img-fluid" src="{{ url('/') }}/assets/img/Free-URL-Shortner-Banner.jpg"
+                              alt="Free URL Shortner Banner" title="Free URL Shortner Banner">
+                      </div>
 
                       <p>
                           Bitly is another well-known name in the URL shortening arena. However, URLgen.io competes
@@ -174,43 +179,7 @@
           </div>
       </section>
 
-      <section id="features" class="features">
-          <div class="container">
-
-              <div class="row gy-4 align-items-center features-item aos-init aos-animate" data-aos="fade-up">
-
-                  <div class="col-md-5">
-                      <a href="{{ url('/unlocking-the-power-of-URLGen:-your-ultimate-URL-shortening-solution') }}">
-                          <img class="my-3 img-fluid" src="{{ url('/') }}/assets/img/Free-URL-Shortner-Banner.jpg"
-                              alt="Free URL Shortner Banner" title="Free URL Shortner Banner">
-                      </a>
-                  </div>
-                  <div class="col-md-7">
-                      <h3>
-                          <a href="{{ url('/unlocking-the-power-of-URLGen:-your-ultimate-URL-shortening-solution') }}">
-                              Unveiling the Power of URLGen.io: Your Ultimate URL Shortening Solution
-                          </a>
-                      </h3>
-                      <p class="fst-italic">
-                        In today's digital age, where every character counts, URL shorteners have become invaluable tools for
-                        internet users. Whether you're sharing a link on social media, optimizing your website's user
-                        experience, or tracking the performance of your marketing campaigns, the benefits of URL shortening
-                        are undeniable. In this blog, we'll introduce you to URLGen.io, your all-in-one solution for URL
-                        shortening, and explore why it stands out among the crowd of options, including the renowned Google
-                        URL Shortener and Bitly and others.
-                      </p>
-                      <ul>
-                          <li><i class="bi bi-check"></i> URL Shortener Free of Charge</li>
-                          <li><i class="bi bi-check"></i> Security and Reliability</li>
-                          <li><i class="bi bi-check"></i> User-Friendly Interface</li>
-                      </ul>
-                  </div>
-              </div><!-- Features Item -->
-
-          </div>
-      </section>
-
-      <section id="faq" class="faq bg-white">
+      <section id="faq" class="faq">
           <div class="container ">
 
               <div class="section-header">
