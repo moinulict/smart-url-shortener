@@ -52,7 +52,7 @@
 </script>
 </head>
 
-<body>
+<body class="body">
 
     @include('front.common.header')
 

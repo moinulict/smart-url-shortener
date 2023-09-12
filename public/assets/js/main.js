@@ -1,14 +1,7 @@
-/**
- * Template Name: Logis
- * Updated: Jul 27 2023 with Bootstrap v5.3.1
- * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
+const baseUrl = $('meta[name="baseUrl"]').attr("content");
+
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
-
-  const baseUrl = $('meta[name="baseUrl"]').attr("content");
   /**
    * Preloader
    */
@@ -232,14 +225,15 @@ document.addEventListener("DOMContentLoaded", () => {
           html += `<i class="fa-solid fa-share-nodes"></i> Share`;
           html += `</button>`;
           html += `<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`;
-          html += `<li><a href="https://www.facebook.com/sharer/sharer.php?u=${shortUrl}" class="facebook" target="_blank"><i class="bi bi-facebook"></i> <span>Facebook</span></a></li>`;
-          html += `<li><a href="https://api.whatsapp.com/send?text=${shortUrl}" class="whatsapp" target="_blank"><i class="bi bi-whatsapp"></i> <span>WhatsApp</span></a></li>`;
-          html += `<li><a href="https://twitter.com/intent/tweet?url=${shortUrl}" class="twitter" target="_blank"><i class="bi bi-twitter"></i> <span>Twitter</span></a></li>`;
-          html += `<li><a href="https://www.linkedin.com/shareArticle?url=${shortUrl}" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i> <span>Linkedin</span></a></li>`;
-          html += `<li><a href="https://pinterest.com/pin/create/button/?url=${shortUrl}" class="pinterest" target="_blank"><i class="bi bi-pinterest"></i> <span>Pinterest</span></a></li>`;
-          html += `<li><a href="mailto:?subject=Share URLGEN on Email&body=:${shortUrl}" class="envelope" target="_blank"><i class="bi bi-envelope"></i> <span>Envelope</span></a></li>`;
+          html += `<li><a href="https://www.facebook.com/sharer/sharer.php?u=${shortUrl}" class="facebook" target="_blank"><i class="fa-brands fa-facebook"></i> <span>Facebook</span></a></li>`;
+          html += `<li><a href="https://api.whatsapp.com/send?text=${shortUrl}" class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></a></li>`;
+          html += `<li><a href="https://twitter.com/intent/tweet?url=${shortUrl}" class="twitter" target="_blank"><i class="fa-brands fa-twitter"></i> <span>Twitter</span></a></li>`;
+          html += `<li><a href="https://www.linkedin.com/shareArticle?url=${shortUrl}" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i> <span>Linkedin</span></a></li>`;
+          html += `<li><a href="https://pinterest.com/pin/create/button/?url=${shortUrl}" class="pinterest" target="_blank"><i class="fa-brands fa-pinterest"></i> <span>Pinterest</span></a></li>`;
+          html += `<li><a href="mailto:?subject=Share URLGEN on Email&body=:${shortUrl}" class="envelope" target="_blank"><i class="fa fa-envelope"></i> <span>Envelope</span></a></li>`;
           html += `</ul>`;
           html += `</span>`;
+          html += `<a href="javascript:;" class="btn btn-secondary btn-sm myURLGenBtn" title="My URLGen History"><i class="fa-solid fa-history"></i> My URLGens</a>`;
           // html += `<button class="btn btn-primary btn-sm" title="Generate QR"><i class="fa-solid fa-qrcode"></i> QR</button>`;
           html += `</div>`;
         } else {
@@ -261,10 +255,23 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
   });
+
 });
 
 $(document).on("click", ".copyBtn", function () {
   const textToCopy = $(".urlGenUrl").val();
+  const mgsEl = $(".copyMsg");
+  copyToClipBoard(textToCopy, mgsEl);
+});
+
+$(document).on("click", ".historyCopyBtn", function () {
+  const id = $(this).data('id');
+  const textToCopy = $(".shortenUrl_"+id).html();
+  const mgsEl = $(".copyAck_"+id);
+  copyToClipBoard(textToCopy, mgsEl);
+});
+
+function copyToClipBoard(textToCopy, mgsEl){
   if (textToCopy) {
     // Create a temporary textarea element
     var textarea = document.createElement("textarea");
@@ -278,14 +285,153 @@ $(document).on("click", ".copyBtn", function () {
     // Remove the temporary textarea
     document.body.removeChild(textarea);
 
-    var messageDiv = $(".copyMsg");
-    messageDiv.show();
+    mgsEl.show();
     setTimeout(function () {
-      messageDiv.hide();
+      mgsEl.hide();
     }, 5000);
   }
-});
+}
 
 $(document).on("click", ".btnShare", function () {
   $(".shareMenu").toggle();
 });
+
+$(document).on("click", ".myURLGenBtn", async function () {
+  const myURLGens = await getURLGenHistory();
+  let html = ``;
+  if (myURLGens.status) {
+    const urls = myURLGens.urlGens.data;
+    html += `<div class="list-group">`;
+    urls.forEach(row => {
+      const shortUrl = row.short_url;
+      html += `<div class="list-group-item list-group-item-action flex-column align-items-start">`;
+      html += `<div class="d-flex w-100 justify-content-between">`;
+      html += `<h5 class="mb-1 shortenUrl_${row.id}">${shortUrl}</h5>`;
+      html += `<small class="text-muted timeDiff">${formatTimeDifference(row.created_at)}</small>`;
+      html += `</div>`;
+      html += `<p class="mb-1">${row.long_url}</p>`;
+      html += `<div class="pr">`;
+      html += `<span class="ack ackPos text-success none copyAck_${row.id}">Copied</span>`;
+      html += `<a href="javascript:;" class="btn btn-primary btn-sm historyCopyBtn" data-id="${row.id}" title="Copy Shorten URL"><i class="fa-solid fa-copy"></i> Copy</a>`;
+      html += `<a href="${shortUrl}" target="_blank" class="btn btn-success btn-sm mx-1" title="Visit Site"><i class="fa-solid fa-diamond-turn-right"></i> Visit</a>`;
+      html += `<span class="dropdown btnShare">`;
+      html += `<button class="btn btn-info btn-sm dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">`;
+      html += `<i class="fa-solid fa-share-nodes"></i> Share`;
+      html += `</button>`;
+      html += `<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`;
+      html += `<li><a href="https://www.facebook.com/sharer/sharer.php?u=${shortUrl}" class="facebook" target="_blank"><i class="fa-brands fa-facebook"></i> <span>Facebook</span></a></li>`;
+      html += `<li><a href="https://api.whatsapp.com/send?text=${shortUrl}" class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></a></li>`;
+      html += `<li><a href="https://twitter.com/intent/tweet?url=${shortUrl}" class="twitter" target="_blank"><i class="fa-brands fa-twitter"></i> <span>Twitter</span></a></li>`;
+      html += `<li><a href="https://www.linkedin.com/shareArticle?url=${shortUrl}" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i> <span>Linkedin</span></a></li>`;
+      html += `<li><a href="https://pinterest.com/pin/create/button/?url=${shortUrl}" class="pinterest" target="_blank"><i class="fa-brands fa-pinterest"></i> <span>Pinterest</span></a></li>`;
+      html += `<li><a href="mailto:?subject=Share URLGEN on Email&body=:${shortUrl}" class="envelope" target="_blank"><i class="fa fa-envelope"></i> <span>Envelope</span></a></li>`;
+      html += `</ul>`;
+      html += `</span>`;
+      html += `</div>`;
+      html += `</div>`;
+    });
+    html += `</div>`;
+    //generatePagination(myURLGens.urlGens);
+  }else{
+    html += `<div class="">You didn't generated shorten URL yet.</div>`;
+  }
+  $('.urlGenHistoryResponse').html(html);
+  $('.urlGenHistory').toggleClass('open')
+  return false
+})
+
+function formatTimeDifference(createdAt) {
+  var currentTime = new Date();
+  var createdAt = new Date(createdAt);
+  var timeDifference = currentTime - createdAt;
+
+  // Convert milliseconds to seconds
+  var secondsDifference = Math.floor(timeDifference / 1000);
+
+  // Define time intervals for formatting
+  var intervals = [
+      { label: 'day', seconds: 86400 },
+      { label: 'hour', seconds: 3600 },
+      { label: 'minute', seconds: 60 },
+      { label: 'second', seconds: 1 }
+  ];
+
+  // Format the time difference
+  var result = '';
+  for (var i = 0; i < intervals.length; i++) {
+      var interval = intervals[i];
+      var count = Math.floor(secondsDifference / interval.seconds);
+      if (count > 0) {
+          result += count + ' ' + (count === 1 ? interval.label : interval.label + 's') + ' ago';
+          break;
+      }
+  }
+
+  return result;
+}
+
+$(document).ready(function () {
+  $('body').click(function (event) {
+    if (!$(event.target).closest('.urlGenHistory').length) {
+      $('.urlGenHistory').removeClass('open')
+    }
+  });
+});
+
+$('.urlGenHistory .close').on('click', function () {
+  $('.urlGenHistory').removeClass('open')
+})
+
+function getURLGenHistory() {
+  return Promise.resolve($.ajax({
+    headers: {
+      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+    },
+    type: "GET",
+    url: baseUrl + "/getURLGenHistory",
+  }));
+}
+
+// Function to generate pagination
+function generatePagination(response) {
+  var paginationHtml = '';
+  // Create "Previous" button if available
+  if (response.links[0].active) {
+    paginationHtml += '<button class="prev">Previous</button>';
+  }
+
+  // Create page number buttons
+  $.each(response.links, function (index, link) {
+    if (link.active) {
+      paginationHtml += '<button class="page active">' + link.label + '</button>';
+    } else {
+      paginationHtml += '<button class="page">' + link.label + '</button>';
+    }
+  });
+
+  // Create "Next" button if available
+  if (response.links[2].active) {
+    paginationHtml += '<button class="next">Next</button>';
+  }
+
+  // Append pagination HTML to the #pagination element
+  $('#pagination').html(paginationHtml);
+
+  // Add event handlers for pagination buttons
+  $('.prev').click(function () {
+    // Handle previous page click
+    // Implement your logic to load the previous page here
+  });
+
+  $('.next').click(function () {
+    // Handle next page click
+    // Implement your logic to load the next page here
+  });
+
+  $('.page').click(function () {
+    var pageNumber = $(this).text();
+    // Handle page number click
+    // Implement your logic to load the specific page here
+    console.log('Clicked on page ' + pageNumber);
+  });
+}

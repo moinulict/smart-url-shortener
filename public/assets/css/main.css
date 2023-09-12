@@ -120,7 +120,7 @@ section {
 @media (max-width: 991px) {
   .featured-services {
     padding: 40px 0px;
-}
+  }
 }
 
 @media (max-width: 640px) {
@@ -579,10 +579,11 @@ section {
 /*--------------------------------------------------------------
 # Featured Services Section
 --------------------------------------------------------------*/
-.featured-services{
+.featured-services {
   background: #fff;
   padding: 60px 0px;
 }
+
 .featured-services .service-item {
   position: relative;
   height: 100%;
@@ -643,7 +644,8 @@ section {
 /*--------------------------------------------------------------
 # About Us Section
 --------------------------------------------------------------*/
-.content h3, .content h2 {
+.content h3,
+.content h2 {
   font-weight: 700;
   font-size: 32px;
   color: var(--color-primary);
@@ -1925,21 +1927,30 @@ section {
 .footer .credits a {
   color: #fff;
 }
-.none{
+
+.none {
   display: none;
 }
-.pr{
+
+.pr {
   position: relative;
 }
-.copyMsg{
+
+.copyMsg {
   position: absolute;
   right: 0px;
   top: 5px;
   font-style: italic;
   font-weight: bold;
 }
+
+.ack {
+  font-style: italic;
+  font-weight: bold;
+}
+
 /*********************share*********************/
-.shareMenu{
+.shareMenu {
   list-style: none;
   background-color: #fff;
   width: max-content;
@@ -1949,35 +1960,42 @@ section {
   position: absolute;
   top: 35px;
 }
-.shareMenu li{
+
+.shareMenu li {
   margin-top: 5px;
 }
-.shareMenu li a{
+
+.shareMenu li a {
   border-radius: 2px;
   padding: 3px 10px;
 }
-.shareMenu li a span{
+
+.shareMenu li a span {
   color: #212529;
 }
-.genBox{
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    background: #fff;
-    padding: 15px;
-    border-radius: 5px;
+
+.genBox {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
 }
-.genBox .form-control{
+
+.genBox .form-control {
   padding: .8rem;
   font-weight: bold;
   color: #005263;
   font-size: 1.1rem;
 }
+
 .loader {
   border: 3px solid #f3f3f3;
   border-radius: 50%;
   border-top: 3px solid #3498db;
   width: 25px;
   height: 25px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
   animation: spin 2s linear infinite;
   display: inline-block;
   vertical-align: sub;
@@ -1985,36 +2003,53 @@ section {
 
 /* Safari */
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
-.hidden{
+
+.hidden {
   visibility: hidden;
 }
-.shown{
+
+.shown {
   visibility: visible;
 }
+
 h1 {
   font-size: 2rem;
   font-weight: 600;
   color: #3c3c3c;
   letter-spacing: -1px;
 }
-.featured-services ul li{
+
+.featured-services ul li {
   margin: 4px 0px;
 }
-#faqlist .accordion-item{
+
+#faqlist .accordion-item {
   background: transparent;
 }
-.btnShare ul{
+
+.btnShare ul {
   padding: 0;
 }
-.btnShare ul li a{
+
+.btnShare ul li a {
   display: block;
   border-bottom: 1px solid #f0f0f0;
   border-collapse: collapse;
@@ -2022,24 +2057,102 @@ h1 {
   cursor: pointer;
   color: #3c3c3c;
 }
-.btnShare ul li a:hover{
+
+.btnShare ul li a:hover {
   background: transparent;
   color: var(--color-primary)
 }
-h3{
+
+h3 {
   font-size: 20px;
 }
-.why{
+
+.why {
   padding: 5px 15px;
 }
-.required{
+
+.required {
   color: #ff0000;
 }
-ol li{
+
+ol li {
   margin: 12px 0px;
 }
-ul{
+
+ul {
   list-style: none;
   padding: 0px;
   margin: 0px;
+}
+
+/***********************history sidebar************************/
+.urlGenHistory {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 350px;
+  height: 100vh;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.urlGenHistory {
+  right: -350px;
+}
+
+.urlGenHistory.open {
+  right: 0;
+}
+
+.urlGenHistory .close {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 28px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.btn-sm {
+  padding: 3px 8px;
+  font-size: 13px;
+}
+
+.urlGenHistoryResponse h5 {
+  font-size: 16px;
+}
+
+.urlGenHistoryResponse h5 {
+  font-size: 16px;
+}
+
+.urlGenHistoryResponse .list-group-item p {
+  font-size: 13px;
+}
+
+.urlGenHistoryResponse .ackPos {
+  position: absolute;
+  font-size: 13px;
+  right: 0;
+}
+.timeDiff {
+  font-size: 12px;
+  font-style: italic;
 }

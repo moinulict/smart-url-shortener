@@ -12,15 +12,28 @@ use Illuminate\Support\Str;
 
 class FrontController extends Controller
 {
+    public function index(){
+        return view('front.index');
+    }
+
+    public function getURLGenHistory(){
+
+        $items = UrlGen::where('uuid', request()->cookie('urlgenUUID'))->select('id', 'long_url', 'short_url', 'created_at')->latest()->paginate(10);
+
+        return response()->json(['status' => 'success', 'message' => '', 'urlGens' => $items]);
+    }
+
     public function generateShortenUrl(Request $request)
     {
+
         $uniqueId = Helper::generate(6);
 
         $data = [
             "long_url" => $request->longUrl,
             "short_url" => 'https://urlgen.io/' . $uniqueId,
             "unique_id" => $uniqueId,
-            "ip" => $request->ip()
+            "ip" => $request->ip(),
+            "uuid" => request()->cookie('urlgenUUID')
         ];
 
         if ($item = UrlGen::create($data)) {

@@ -15,5 +15,6 @@ class UrlGen extends Model
         'short_url',
         'unique_id',
         'ip',
+        'uuid',
     ];
 }

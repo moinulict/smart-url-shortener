@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Str;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('front.index');
-});
+Route::get('/', 'FrontController@index')->middleware('setDeviceUuidCookie');
+Route::get('/getURLGenHistory', 'FrontController@getURLGenHistory');
+
 Route::get('/about', function () {
     return view('front.about');
 });
