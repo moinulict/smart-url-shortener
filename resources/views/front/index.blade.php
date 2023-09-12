@@ -31,7 +31,7 @@
                               data-aos-delay="200">
                               <div class="my-2">
                                   <input type="text" class="form-control longUrl"
-                                      placeholder="Enter your long link here">
+                                      placeholder="Enter your long link here" autofocus>
                               </div>
                               <button type="submit" class="btn btn-primary btn-lg w-100 urlGenBtn">
                                   <span class="btn-text">Generate Shorten URL</span>

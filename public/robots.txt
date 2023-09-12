@@ -1,2 +1,8 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin/
+Disallow: /login/
+Disallow: /cgi-bin/
+Disallow: /cdn-cgi/
+
+Sitemap: https://urlgen.io/sitemap.xml

@@ -31,6 +31,12 @@ Route::get('/privacy-policy', function () {
 Route::get('/disclaimer', function () {
     return view('front.disclaimer');
 });
+Route::get('/unlocking-the-power-of-URLGen:-your-ultimate-URL-shortening-solution', function () {
+    return view('front.blog-1');
+});
+Route::post('/blogs', function(){
+    return view('front.blogs');
+});
 Route::post('/contact', 'FrontController@postContact');
 
 Route::get('/{uniqueId}', 'FrontController@redirectToLongUrl');

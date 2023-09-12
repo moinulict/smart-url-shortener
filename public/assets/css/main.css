@@ -20,7 +20,7 @@
 /* Colors */
 :root {
   --color-default: #0a0d13;
-  --color-primary: #0d42ff;
+  --color-primary: #005263;
   --color-secondary: #0e1d34;
 }
 
@@ -44,7 +44,7 @@ a {
 }
 
 a:hover {
-  color: #406aff;
+  color: #2FB7EA;
   text-decoration: none;
 }
 
@@ -77,7 +77,7 @@ section {
   text-transform: uppercase;
   margin-bottom: 20px;
   padding-bottom: 0;
-  color: #001973;
+  color: var(--color-primary);
   position: relative;
   z-index: 2;
   margin-bottom: 20px;
@@ -643,10 +643,10 @@ section {
 /*--------------------------------------------------------------
 # About Us Section
 --------------------------------------------------------------*/
-.about .content h3, .about .content h2 {
+.content h3, .content h2 {
   font-weight: 700;
   font-size: 32px;
-  font-family: var(--font-secondary);
+  color: var(--color-primary);
 }
 
 .about .content ul {
@@ -2034,4 +2034,12 @@ h3{
 }
 .required{
   color: #ff0000;
+}
+ol li{
+  margin: 12px 0px;
+}
+ul{
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
 }
