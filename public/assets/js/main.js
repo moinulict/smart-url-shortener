@@ -232,12 +232,12 @@ document.addEventListener("DOMContentLoaded", () => {
           html += `<i class="fa-solid fa-share-nodes"></i> Share`;
           html += `</button>`;
           html += `<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`;
-          html += `<li><a href="https://www.facebook.com/sharer/sharer.php?u=${shortUrl}" class="facebook" target="_blank"><i class="bi bi-facebook"></i> <span>Facebook</span></a></li>`;
-          html += `<li><a href="https://api.whatsapp.com/send?text=${shortUrl}" class="whatsapp" target="_blank"><i class="bi bi-whatsapp"></i> <span>WhatsApp</span></a></li>`;
-          html += `<li><a href="https://twitter.com/intent/tweet?url=${shortUrl}" class="twitter" target="_blank"><i class="bi bi-twitter"></i> <span>Twitter</span></a></li>`;
-          html += `<li><a href="https://www.linkedin.com/shareArticle?url=${shortUrl}" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i> <span>Linkedin</span></a></li>`;
-          html += `<li><a href="https://pinterest.com/pin/create/button/?url=${shortUrl}" class="pinterest" target="_blank"><i class="bi bi-pinterest"></i> <span>Pinterest</span></a></li>`;
-          html += `<li><a href="mailto:?subject=Share URLGEN on Email&body=:${shortUrl}" class="envelope" target="_blank"><i class="bi bi-envelope"></i> <span>Envelope</span></a></li>`;
+          html += `<li><a href="https://www.facebook.com/sharer/sharer.php?u=${shortUrl}" class="facebook" target="_blank"><i class="fa-brands fa-facebook"></i> <span>Facebook</span></a></li>`;
+          html += `<li><a href="https://api.whatsapp.com/send?text=${shortUrl}" class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></a></li>`;
+          html += `<li><a href="https://twitter.com/intent/tweet?url=${shortUrl}" class="twitter" target="_blank"><i class="fa-brands fa-twitter"></i> <span>Twitter</span></a></li>`;
+          html += `<li><a href="https://www.linkedin.com/shareArticle?url=${shortUrl}" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i> <span>Linkedin</span></a></li>`;
+          html += `<li><a href="https://pinterest.com/pin/create/button/?url=${shortUrl}" class="pinterest" target="_blank"><i class="fa-brands fa-pinterest"></i> <span>Pinterest</span></a></li>`;
+          html += `<li><a href="mailto:?subject=Share URLGEN on Email&body=:${shortUrl}" class="envelope" target="_blank"><i class="fa fa-envelope"></i> <span>Envelope</span></a></li>`;
           html += `</ul>`;
           html += `</span>`;
           // html += `<button class="btn btn-primary btn-sm" title="Generate QR"><i class="fa-solid fa-qrcode"></i> QR</button>`;
