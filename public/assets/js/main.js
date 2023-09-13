@@ -336,7 +336,7 @@ $(document).on("click", ".myURLGenBtn", async function () {
       html += `</div>`;
     } else {
       $('.clearHistory').hide();
-      html += `<div class="alert alert-info">You didn't generated shorten URL yet.</div>`;
+      html += `<div class="alert alert-info">You didn't generated shorten URLs yet.</div>`;
     }
   } else {
     html += `<div class="">${myURLGens.message}</div>`;

@@ -4,7 +4,7 @@
       <meta
           content="Discover the convenience of a free URL shortener tool. Effortlessly shrink and manage your links for improved online efficiency. Click to learn more!"
           name="description">
-      <meta content="Free URL Shortener" name="keywords">
+      <meta content="Free URL Shortener, Best URL Shortner" name="keywords">
 
       <meta property="og:title" content="Unlock the Power of a Free URL Shortener: Shorten Your Links" />
       <meta property="og:description"
