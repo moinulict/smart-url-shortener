@@ -5,7 +5,6 @@
           content="Discover the convenience of a free URL shortener tool. Effortlessly shrink and manage your links for improved online efficiency. Click to learn more!"
           name="description">
       <meta content="Free URL Shortener, Best URL Shortner" name="keywords">
-
       <meta property="og:title" content="Unlock the Power of a Free URL Shortener: Shorten Your Links" />
       <meta property="og:description"
           content="Discover the convenience of a free URL shortener tool. Effortlessly shrink and manage your links for improved online efficiency. Click to learn more!" />
@@ -77,7 +76,7 @@
 
 
                       <div class="text-center">
-                          <img class="my-3 img-fluid" src="{{ url('/') }}/assets/img/Free-URL-Shortner-Banner.jpg"
+                          <img class="my-3 img-fluid" src="https://assets.thesupersoft.com/genio-assets/img/Free-URL-Shortner-Banner.jpg"
                               alt="Free URL Shortner Banner" title="Free URL Shortner Banner">
                       </div>
 
