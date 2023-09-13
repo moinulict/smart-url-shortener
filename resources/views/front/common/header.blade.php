@@ -29,10 +29,10 @@
       <h3>Your URLGens</h3>
       <hr>
       <div class="urlGenHistoryResponse"></div>
-      <div id="pagination"></div>
+      {{-- <div id="pagination"></div> --}}
 
-      <div class="text-right mt-2">
-          <a href="javascript:;" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Clear History</a>
+      <div class="text-right mt-2 none clearHistory">
+          <a href="javascript:;" class="btn btn-danger btn-sm clearHistoryBtn"><i class="fa fa-trash"></i> Clear History</a>
       </div>
 
   </nav>

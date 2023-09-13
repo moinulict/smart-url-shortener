@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 
 Route::get('/', 'FrontController@index')->middleware('setDeviceUuidCookie');
 Route::get('/getURLGenHistory', 'FrontController@getURLGenHistory');
+Route::get('/removeURLGenHistory', 'FrontController@removeURLGenHistory');
 
 Route::get('/about', function () {
     return view('front.about');

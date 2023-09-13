@@ -18,9 +18,16 @@ class FrontController extends Controller
 
     public function getURLGenHistory(){
 
-        $items = UrlGen::where('uuid', request()->cookie('urlgenUUID'))->select('id', 'long_url', 'short_url', 'created_at')->latest()->paginate(10);
+        $items = UrlGen::where('uuid', request()->cookie('urlgenUUID'))->select('id', 'long_url', 'short_url', 'created_at')->latest()->get();
 
         return response()->json(['status' => 'success', 'message' => '', 'urlGens' => $items]);
+    }
+
+    public function removeURLGenHistory(){
+
+        $items = UrlGen::where('uuid', request()->cookie('urlgenUUID'))->delete();
+
+        return response()->json(['status' => 'success', 'message' => 'Your history has been deleted successfully']);
     }
 
     public function generateShortenUrl(Request $request)

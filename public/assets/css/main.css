@@ -2102,7 +2102,8 @@ ul {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 350px;
+  width: 380px;
+  right: -380px;
   height: 100vh;
   padding: 20px;
   background: #ffffff;
@@ -2110,22 +2111,15 @@ ul {
   z-index: 9999;
   overflow-y: auto;
 }
-
-.urlGenHistory {
-  right: -350px;
-}
-
 .urlGenHistory.open {
   right: 0;
 }
-
 .urlGenHistory .close {
   position: absolute;
-  right: 10px;
-  top: 5px;
-  font-size: 28px;
+  right: 20px;
+  top: 10px;
+  font-size: 24px;
 }
-
 .text-right {
   text-align: right;
 }
@@ -2155,4 +2149,10 @@ ul {
 .timeDiff {
   font-size: 12px;
   font-style: italic;
+}
+@media (max-width: 1279px) {
+  .urlGenHistory{
+    width: 100% ;
+    right: -100%;
+  }
 }
