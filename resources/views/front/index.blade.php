@@ -13,16 +13,16 @@
       <!-- ======= Hero Section ======= -->
       <section class="d-flex align-items-center">
           <div class="container">
-              <div class="row gy-4">
+              <div class="row gy-4 justify-content-between">
                   <div class="col-lg-6">
                       <div class="genBox">
-                          <h1 data-aos="fade-up">Free URL Shortener Generator</h1>
+                          <h2 data-aos="fade-up">Free URL Shortener Generator</h2>
                           <p data-aos="fade-up" data-aos-delay="100">
-                              Introducing URLGEN, your go-to solution for hassle-free link sharing. With URLGEN, you can
+                              Introducing URLgen, your go-to solution for hassle-free link sharing. With URLgen, you can
                               instantly
                               generate lengthy web URL into concise and shorten links.
                               Simplify your URL sharing process and unlock the potential of your online presence with
-                              URLGEN.
+                              URLgen.
                           </p>
 
                           <div class="alert alert-danger none errorMsg"></div>
@@ -45,6 +45,23 @@
 
                   </div>
 
+                  <div class="col-lg-5 ml-auto">
+                    <h3>URLgen Provides below features without any cost</h3>
+
+                    <ul>
+                        <li>
+                            <i class="fa fa-check text-success"></i> Bulk Short URLs
+                        </li>
+                        <li>
+                            <i class="fa fa-check text-success"></i> Link Management Features
+                        </li>
+                        <li>
+                            <i class="fa fa-check text-success"></i> Detailed Link Analytics
+                        </li>
+                    </ul>
+
+                  </div>
+
 
               </div>
 
@@ -61,14 +78,14 @@
                           When it comes to URL shortening services, Google's URL shortener was once a well-known and widely
                           used tool.
                           However, as it was discontinued, users have been searching for reliable alternatives.
-                          URLgen.io emerges as a top choice, offering a user-friendly experience and the ability to create
+                          URLgen emerges as a top choice, offering a user-friendly experience and the ability to create
                           custom
-                          short URLs. With URLgen.io, you can seamlessly transition from the now-defunct Google URL
+                          short URLs. With URLgen, you can seamlessly transition from the now-defunct Google URL
                           shortener,
                           ensuring your links remain accessible and functional.
                       </p>
 
-                      <p>Looking for a free and efficient URL shortener? URLgen.io has you covered.
+                      <p>Looking for a free and efficient URL shortener? URLgen has you covered.
                           It allows you to shorten your long URLs without any cost, making it a cost-effective choice for
                           individuals and businesses alike. Plus, it offers a range of features like tracking and analytics,
                           ensuring that you can monitor the performance of your short links effortlessly.
@@ -81,7 +98,7 @@
                       </div>
 
                       <p>
-                          Bitly is another well-known name in the URL shortening arena. However, URLgen.io competes
+                          Bitly is another well-known name in the URL shortening arena. However, URLgen competes
                           admirably
                           with Bitly's URL shortener service. It provides similar capabilities, including customization
                           options for
@@ -91,21 +108,21 @@
 
                       <p>
                           For those considering LinkedIn for professional networking and sharing content,
-                          having a custom URL shortener like URLgen.io can be invaluable. It allows you to create short,
+                          having a custom URL shortener like URLgen can be invaluable. It allows you to create short,
                           branded links that enhance your professional image and make your shared content appear more
                           polished and
                           trustworthy on the platform.
                       </p>
 
                       <p>
-                          URLgen.io doesn't just stop at shortening URLs; it also provides secure and reliable services.
-                          Unlike some IP logger URL shorteners, URLgen.io prioritizes user safety and ensures that your
+                          URLgen doesn't just stop at shortening URLs; it also provides secure and reliable services.
+                          Unlike some IP logger URL shorteners, URLgen prioritizes user safety and ensures that your
                           links are
                           free from harmful content or malicious intent, adding a layer of security to your online presence.
                       </p>
 
                       <p>
-                          In the world of URL shorteners, simplicity and effectiveness matter. URLgen.io, similar to
+                          In the world of URL shorteners, simplicity and effectiveness matter. URLgen, similar to
                           TinyURL, offers a straightforward
                           approach to link shortening. It's an ideal choice for those who want a hassle-free experience with
                           no unnecessary
@@ -114,17 +131,17 @@
 
                       <p>
                           If you're on the lookout for the best URL shortener that combines all these features and more,
-                          URLgen.io should be your top pick. It even offers an opportunity to earn money through its
+                          URLgen should be your top pick. It even offers an opportunity to earn money through its
                           services,
                           making it a versatile tool for both personal and professional use.
                       </p>
 
                       <p>
-                          When considering your URL shortening options, remember that URLgen.io stands out as a reliable and
+                          When considering your URL shortening options, remember that URLgen stands out as a reliable and
                           feature-rich choice, offering customization, tracking, and the security you need for your
                           shortened links.
                           Whether you're looking for a Google URL shortener alternative, a Bitly-like service, or a way to
-                          enhance your LinkedIn presence, URLgen.io has you covered with its user-friendly platform and
+                          enhance your LinkedIn presence, URLgen has you covered with its user-friendly platform and
                           diverse features.
                       </p>
 
@@ -148,7 +165,7 @@
                           increasing the chances of them visiting the link.</p>
 
                       <h3>Tracking and Analytics</h3>
-                      <p>Free URL shortening service provided by urlgen.io offer tracking features that provide valuable
+                      <p>Free URL shortening service provided by URLgen offer tracking features that provide valuable
                           insights into link performance.
                           Users can see how many times the link has been clicked, where the clicks came from, and other
                           useful data.
@@ -198,7 +215,7 @@
                       </h3>
                       <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                           <div class="accordion-body">
-                              A URL shortener is an online tool like URLGEN that transforms long and complex URLs into
+                              A URL shortener is an online tool like URLgen that transforms long and complex URLs into
                               shorter, more manageable links that redirect to your original webpage.
                           </div>
                       </div>
@@ -225,7 +242,7 @@
                           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                               data-bs-target="#faq-content-3">
                               <i class="bi bi-question-circle question-icon"></i>
-                              Are shortened URLs through URLGEN safe to click on?
+                              Are shortened URLs through URLgen safe to click on?
                           </button>
                       </h3>
                       <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
