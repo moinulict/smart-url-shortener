@@ -15,6 +15,8 @@
                   <li><a href="{{ url('/') }}" class="active">Home</a></li>
                   <li><a href="{{ url('/about') }}">About</a></li>
                   <li><a href="javascript:;" class="myURLGenBtn">My URLGens</a></li>
+                  <li><a href="javascript:;">Sign Up</a></li>
+                  <li><a href="javascript:;">Sign In</a></li>
                   <li><a href="{{ url('/contact') }}">Contact</a></li>
               </ul>
           </nav><!-- .navbar -->
@@ -32,7 +34,8 @@
       {{-- <div id="pagination"></div> --}}
 
       <div class="text-right mt-2 none clearHistory">
-          <a href="javascript:;" class="btn btn-danger btn-sm clearHistoryBtn"><i class="fa fa-trash"></i> Clear History</a>
+          <a href="javascript:;" class="btn btn-danger btn-sm clearHistoryBtn"><i class="fa fa-trash"></i> Clear
+              History</a>
       </div>
 
   </nav>
