@@ -15,8 +15,8 @@
                   <li><a href="{{ url('/') }}" class="active">Home</a></li>
                   <li><a href="{{ url('/about') }}">About</a></li>
                   <li><a href="javascript:;" class="myURLGenBtn">My URLGens</a></li>
-                  <li><a href="javascript:;">Sign Up</a></li>
-                  <li><a href="javascript:;">Sign In</a></li>
+                  <li><a href="javascript:;" class="signUpBtn">Sign Up</a></li>
+                  <li><a href="javascript:;" class="loginBtn">Sign In</a></li>
                   <li><a href="{{ url('/contact') }}">Contact</a></li>
               </ul>
           </nav><!-- .navbar -->

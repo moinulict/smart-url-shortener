@@ -26,40 +26,39 @@
           <div class="modal-content">
               <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLongTitle">Create New Account</h5>
-                  {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button> --}}
               </div>
               <div class="modal-body">
-                  <form class="createAccountForm">
-                      <div class="mb-3">
-                          <label for="name" class="form-label">Name<span class="required">*</span></label>
-                          <input class="form-control" id="name" name="name" required minlength="3">
-                      </div>
-                      <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label">Email<span
-                                  class="required">*</span></label>
-                          <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                              aria-describedby="emailHelp">
-                      </div>
-                      <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password<span
-                                  class="required">*</span></label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" minlength="8" required>
-                      </div>
-                      <div class="mb-3">
-                          By clicking on “Create Account”, I agree to URLGen’s <a href="{{ url('/terms') }}">Terms &
-                              Conditions</a> and <a href="{{ url('/privacy-policy') }}">Privacy Policy</a>.
-                      </div>
-                      <div class="text-right">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                              data-bs-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-success">Create Account</button>
-                      </div>
-                      <div class="text-left">
-                          Already have an account <a href="{{ url('/terms') }}">login</a>
-                      </div>
-                  </form>
+                <div id="error-container" class="alert alert-danger" style="display: none;">
+                    <ul id="error-list"></ul>
+                </div>
+                <form class="createAccountForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name<span class="required">*</span></label>
+                        <input class="form-control" id="name" name="name" required_ minlength="3">
+                        <div class="invalid-feedback" id="name-error"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email<span class="required">*</span></label>
+                        <input type="email_" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required_>
+                        <div class="invalid-feedback" id="email-error"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password<span class="required">*</span></label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password" minlength="8" required_>
+                        <div class="invalid-feedback" id="password-error"></div>
+                    </div>
+                    <div class="mb-3">
+                        By clicking on “Create Account”, I agree to URLGen’s <a href="{{ url('/terms') }}">Terms & Conditions</a> and
+                        <a href="{{ url('/privacy-policy') }}">Privacy Policy</a>.
+                    </div>
+                    <div class="text-right">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Create Account</button>
+                    </div>
+                    <div class="text-left">
+                        Already have an account <a href="{{ url('/terms') }}">login</a>
+                    </div>
+                </form>
               </div>
 
           </div>
