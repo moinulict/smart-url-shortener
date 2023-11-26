@@ -18,6 +18,13 @@ Route::get('/getURLGenHistory', 'FrontController@getURLGenHistory');
 Route::get('/removeURLGenHistory', 'FrontController@removeURLGenHistory');
 
 Route::post('/registerAccount', 'AuthController@registerAccount');
+Route::post('/login', 'AuthController@login');
+
+Route::middleware(['auth'])->prefix('customer')->namespace('Customer')->group(function () {
+    Route::get('/dashboard', 'DashboardController@dashboard');
+    Route::get('/logout', 'DashboardController@logout');
+});
+
 
 Route::get('/about', function () {
     return view('front.about');

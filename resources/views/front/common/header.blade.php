@@ -15,8 +15,13 @@
                   <li><a href="{{ url('/') }}" class="active">Home</a></li>
                   <li><a href="{{ url('/about') }}">About</a></li>
                   <li><a href="javascript:;" class="myURLGenBtn">My URLGens</a></li>
+                  @if(Auth::check())
+                  <li><a href="{{ url('/customer/dashboard') }}">Dashboard</a></li>
+                  <li><a href="{{ url('/customer/logout') }}">Logout</a></li>
+                  @else 
                   <li><a href="javascript:;" class="signUpBtn">Sign Up</a></li>
                   <li><a href="javascript:;" class="loginBtn">Sign In</a></li>
+                  @endif
                   <li><a href="{{ url('/contact') }}">Contact</a></li>
               </ul>
           </nav><!-- .navbar -->
