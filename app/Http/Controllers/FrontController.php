@@ -7,6 +7,7 @@ use App\Http\Requests\ContactStoreRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\UrlGen;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 
@@ -40,7 +41,8 @@ class FrontController extends Controller
             "short_url" => 'https://urlgen.io/' . $uniqueId,
             "unique_id" => $uniqueId,
             "ip" => $request->ip(),
-            "uuid" => request()->cookie('urlgenUUID')
+            "uuid" => request()->cookie('urlgenUUID'),
+            "user_id" => Auth::user()->id
         ];
 
         if ($item = UrlGen::create($data)) {

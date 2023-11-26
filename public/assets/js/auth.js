@@ -9,7 +9,7 @@ $(document).on("submit", ".createAccountForm", async function (e) {
         try {
             const response = await createAccount(formData);
             if (response.status) {
-                window.location = `${baseUrl}/dashboard`;
+                window.location.href = `${baseUrl}/customer/dashboard`;
             } else {
                 displayErrors(response);
             }

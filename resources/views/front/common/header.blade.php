@@ -14,11 +14,19 @@
               <ul>
                   <li><a href="{{ url('/') }}" class="active">Home</a></li>
                   <li><a href="{{ url('/about') }}">About</a></li>
-                  <li><a href="javascript:;" class="myURLGenBtn">My URLGens</a></li>
                   @if(Auth::check())
-                  <li><a href="{{ url('/customer/dashboard') }}">Dashboard</a></li>
-                  <li><a href="{{ url('/customer/logout') }}">Logout</a></li>
+                  <li class="dropdown">
+                    <a class="dropbtn">Dashboard <i class="fa fa-caret-down ml-1"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{{ url('/customer/dashboard') }}">Dashboard</a></li>
+                      <li><a href="{{ url('/customer/profile') }}">My Account</a></li>
+                      <li><a href="{{ url('/customer/my-urls') }}">My URLGens</a></li>
+                      <li><a href="{{ url('/customer/change-password') }}">Change Password</a></li>
+                      <li><a href="{{ url('/customer/logout') }}">Logout</a></li>
+                    </ul>
+                  </li>
                   @else 
+                  <li><a href="javascript:;" class="myURLGenBtn">My URLGens</a></li>
                   <li><a href="javascript:;" class="signUpBtn">Sign Up</a></li>
                   <li><a href="javascript:;" class="loginBtn">Sign In</a></li>
                   @endif

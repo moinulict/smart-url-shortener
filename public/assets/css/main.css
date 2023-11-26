@@ -2111,15 +2111,18 @@ ul {
   z-index: 9999;
   overflow-y: auto;
 }
+
 .urlGenHistory.open {
   right: 0;
 }
+
 .urlGenHistory .close {
   position: absolute;
   right: 20px;
   top: 10px;
   font-size: 24px;
 }
+
 .text-right {
   text-align: right;
 }
@@ -2146,21 +2149,39 @@ ul {
   font-size: 13px;
   right: 0;
 }
+
 .timeDiff {
   font-size: 12px;
   font-style: italic;
 }
+
+.customerArea {
+  background-color: #ffffff;
+}
+
+#navbar ul {
+  padding: 0px;
+}
+
+#navbar .dropdown-menu li:hover {
+  background-color: #f4faff;
+}
+.fwb{
+  font-weight: bold;
+}
 @media (max-width: 1279px) {
-  .urlGenHistory{
-    width: 100% ;
+  .urlGenHistory {
+    width: 100%;
     right: -100%;
   }
 }
-.logo{
+
+.logo {
   font-size: 2rem;
   color: #fff;
   font-weight: bold;
 }
-.key-features ul li{
+
+.key-features ul li {
   margin: 5px 0;
 }
