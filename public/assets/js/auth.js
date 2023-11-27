@@ -1,22 +1,61 @@
+function closeAllModals(){
+    $('.modal').modal('hide');
+}
 $(document).on("click", ".signUpBtn", function () {
+    closeAllModals();
     $(".signUpModal").modal('show');
+});
+
+$(document).on("click", ".loginBtn", function () {
+    closeAllModals();
+    $(".loginModal").modal('show');
 });
 
 $(document).on("submit", ".createAccountForm", async function (e) {
     e.preventDefault();
     const formData = $(".createAccountForm").serialize();
+    $(this).find(':submit').attr('disabled', true);
+
     if (validateRegisterForm()) {
         try {
             const response = await createAccount(formData);
             if (response.status) {
                 window.location.href = `${baseUrl}/customer/dashboard`;
             } else {
-                displayErrors(response);
+                $(this).find(':submit').attr('disabled', false);
+                displayErrors('signUp', response);
             }
             console.log(response);
         } catch (error) {
+            $(this).find(':submit').attr('disabled', false);
             if (error.responseJSON) {
-                displayErrors(error.responseJSON);
+                displayErrors('signUp', error.responseJSON);
+            } else {
+                console.error(error);
+            }
+        }
+    }
+});
+
+$(document).on("submit", ".loginForm", async function (e) {
+    e.preventDefault();
+    const formData = $(".loginForm").serialize();
+    $(this).find(':submit').attr('disabled', true);
+
+    if (validateLoginForm()) {
+        try {
+            const response = await login(formData);
+            if (response.status) {
+                window.location.href = `${baseUrl}/customer/dashboard`;
+            } else {
+                $(this).find(':submit').attr('disabled', false);
+                displayErrors('login', response);
+            }
+            console.log(response);
+        } catch (error) {
+            $(this).find(':submit').attr('disabled', false);
+            if (error.responseJSON) {
+                displayErrors('login', error.responseJSON);
             } else {
                 console.error(error);
             }
@@ -60,9 +99,32 @@ function validateRegisterForm() {
     return isValid;
 }
 
-function displayErrors(response) {
-    const errorContainer = $("#error-container");
-    const errorList = $("#error-list");
+function validateLoginForm() {
+    let isValid = true;
+
+    // Reset error messages
+    $(".invalid-feedback").text("");
+
+    // Validate email
+    const email = $("#loginEmail").val();
+    if (!isValidEmail(email)) {
+        $("#loginEmail-error").text("Enter a valid email address").show();
+        isValid = false;
+    }
+
+    // Validate password
+    const password = $("#loginPassword").val();
+    if (password.length < 8) {
+        $("#loginPassword-error").text("Password must be at least 8 characters").show();
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function displayErrors(module, response) {
+    const errorContainer = $(`#${module}-errorContainer`);
+    const errorList = $(`#${module}-errorList`);
 
     // Clear previous errors
     errorList.empty();
@@ -89,6 +151,17 @@ function createAccount(formData) {
         },
         type: "POST",
         url: baseUrl + "/registerAccount",
+        data: formData,
+    }));
+}
+
+function login(formData) {
+    return Promise.resolve($.ajax({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        type: "POST",
+        url: baseUrl + "/login",
         data: formData,
     }));
 }
