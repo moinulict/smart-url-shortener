@@ -27,8 +27,8 @@
                   </li>
                   @else 
                   <li><a href="javascript:;" class="myURLGenBtn">My URLGens</a></li>
-                  <li><a href="javascript:;" class="signUpBtn">Sign Up</a></li>
-                  <li><a href="javascript:;" class="loginBtn">Sign In</a></li>
+                  {{-- <li><a href="javascript:;" class="signUpBtn">Sign Up</a></li>
+                  <li><a href="javascript:;" class="loginBtn">Sign In</a></li> --}}
                   @endif
                   <li><a href="{{ url('/contact') }}">Contact</a></li>
               </ul>

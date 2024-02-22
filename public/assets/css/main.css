@@ -2185,3 +2185,8 @@ ul {
 .key-features ul li {
   margin: 5px 0;
 }
+
+.key-features ul li i{
+  margin-right: 5px;
+  color: #0d6efd !important;
+}

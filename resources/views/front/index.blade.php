@@ -49,28 +49,28 @@
                     <h3 class="mb-3">URLgen Provides below features without any cost</h3>
                     <ul>
                         <li>
-                            <i class="fa fa-check text-success"></i> Bulk Short URLs
+                            <i class="fa fa-check-double text-success"></i> Bulk Short URLs
                         </li>
                         <li>
-                            <i class="fa fa-check text-success"></i> Link Management Features
+                            <i class="fa fa-check-double text-success"></i> Link Management Features
                         </li>
                         <li>
-                            <i class="fa fa-check text-success"></i> Detailed Link Analytics
+                            <i class="fa fa-check-double text-success"></i> Detailed Link Analytics
                         </li>
                         <li>
-                            <i class="fa fa-check text-success"></i> Simplifying Complex URLs
+                            <i class="fa fa-check-double text-success"></i> Simplifying Complex URLs
                         </li>
                         <li>
-                            <i class="fa fa-check text-success"></i> Reducing Typos
+                            <i class="fa fa-check-double text-success"></i> Reducing Typos
                         </li>
                         <li>
-                            <i class="fa fa-check text-success"></i> Tracking and Analytics
+                            <i class="fa fa-check-double text-success"></i> Tracking and Analytics
                         </li>
                     </ul>
 
-                    <div class="mt-3 ">
+                    {{-- <div class="mt-3 ">
                         <button class="btn btn-success btn-block signUpBtn">Create New Account</button>
-                    </div>
+                    </div> --}}
                
 
                   </div>
