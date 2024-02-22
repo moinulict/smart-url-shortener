@@ -100,55 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /**
-   * Initiate pURE cOUNTER
-   */
-  // new PureCounter();
-
-  /**
-   * Initiate glightbox
-   */
-  // const glightbox = GLightbox({
-  //   selector: '.glightbox'
-  // });
-
-  /**
-   * Init swiper slider with 1 slide at once in desktop view
-   */
-  // new Swiper('.slides-1', {
-  //   speed: 600,
-  //   loop: true,
-  //   autoplay: {
-  //     delay: 5000,
-  //     disableOnInteraction: false
-  //   },
-  //   slidesPerView: 'auto',
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //     type: 'bullets',
-  //     clickable: true
-  //   },
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   }
-  // });
-
-  /**
-   * Animation on scroll function and init
-   */
-  // function aos_init() {
-  //   AOS.init({
-  //     duration: 1000,
-  //     easing: 'ease-in-out',
-  //     once: true,
-  //     mirror: false
-  //   });
-  // }
-
-  // window.addEventListener('load', () => {
-  //   aos_init();
-  // });
 
   function isValidDomain(url) {
     var regex =
@@ -195,64 +146,73 @@ document.addEventListener("DOMContentLoaded", () => {
       .addClass("shown");
     $("#urlGenForm .urlGenBtn").prop("disabled", true);
 
-    $.ajax({
-      headers: {
-        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-      },
-      type: "POST",
-      url: baseUrl + "/generateShortenUrl",
-      data: "longUrl=" + longUrl,
-      success: function (response) {
-        console.log(response);
-        let html = ``;
-        if (response.status) {
-          const shortUrl = response.data.short_url;
-          html += `<div for="" class="mb-2">Generated URL</div>`;
-          html += `<span class="mb-2 copyMsg none text-success font-weight-bold">Copied</span>`;
-          html += `<div class="input-group mb-3">`;
-          html += `<input type="text" class="form-control urlGenUrl" placeholder="URLGEN short url" aria-label="Username" aria-describedby="basic-addon1" value="${response.data.short_url}">`;
-          html += `<span class="input-group-text bg-primary" id="basic-addon1">`;
-          html += `<a href="javascript:;" class="text-white copyBtn">`;
-          html += `<i class="fa-solid fa-copy "></i> Copy URL`;
-          html += `</a>`;
-          html += `</span>  `;
-          html += `</div>`;
+    // Ensure grecaptcha is ready
+    grecaptcha.ready(function () {
+      // Execute reCAPTCHA and then make the AJAX call
+      grecaptcha.execute(recaptchaSiteKey, { action: 'submit' }).then(function (token) {
+        $.ajax({
+          headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+          },
+          type: "POST",
+          url: baseUrl + "/generateShortenUrl",
+          data: {
+            longUrl: longUrl,
+            'g-recaptcha-response': token
+          },
+          // data: "longUrl=" + longUrl,
+          success: function (response) {
+            console.log(response);
+            let html = ``;
+            if (response.status) {
+              const shortUrl = response.data.short_url;
+              html += `<div for="" class="mb-2">Generated URL</div>`;
+              html += `<span class="mb-2 copyMsg none text-success font-weight-bold">Copied</span>`;
+              html += `<div class="input-group mb-3">`;
+              html += `<input type="text" class="form-control urlGenUrl" placeholder="URLGEN short url" aria-label="Username" aria-describedby="basic-addon1" value="${response.data.short_url}">`;
+              html += `<span class="input-group-text bg-primary" id="basic-addon1">`;
+              html += `<a href="javascript:;" class="text-white copyBtn">`;
+              html += `<i class="fa-solid fa-copy "></i> Copy URL`;
+              html += `</a>`;
+              html += `</span>  `;
+              html += `</div>`;
 
-          html += `<div class="pr">`;
-          html += `<a href="${shortUrl}" target="_blank" class="btn btn-success btn-sm" title="Visit Site"><i class="fa-solid fa-diamond-turn-right"></i> Visit</a>`;
-          html += `<span class="dropdown btnShare">`;
-          html += `<button class="btn btn-info btn-sm mx-1 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">`;
-          html += `<i class="fa-solid fa-share-nodes"></i> Share`;
-          html += `</button>`;
-          html += `<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`;
-          html += `<li><a href="https://www.facebook.com/sharer/sharer.php?u=${shortUrl}" class="facebook" target="_blank"><i class="fa-brands fa-facebook"></i> <span>Facebook</span></a></li>`;
-          html += `<li><a href="https://api.whatsapp.com/send?text=${shortUrl}" class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></a></li>`;
-          html += `<li><a href="https://twitter.com/intent/tweet?url=${shortUrl}" class="twitter" target="_blank"><i class="fa-brands fa-twitter"></i> <span>Twitter</span></a></li>`;
-          html += `<li><a href="https://www.linkedin.com/shareArticle?url=${shortUrl}" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i> <span>Linkedin</span></a></li>`;
-          html += `<li><a href="https://pinterest.com/pin/create/button/?url=${shortUrl}" class="pinterest" target="_blank"><i class="fa-brands fa-pinterest"></i> <span>Pinterest</span></a></li>`;
-          html += `<li><a href="mailto:?subject=Share URLGEN on Email&body=:${shortUrl}" class="envelope" target="_blank"><i class="fa fa-envelope"></i> <span>Envelope</span></a></li>`;
-          html += `</ul>`;
-          html += `</span>`;
-          html += `<a href="javascript:;" class="btn btn-secondary btn-sm myURLGenBtn" title="My URLGen History"><i class="fa-solid fa-history"></i> My URLGens</a>`;
-          // html += `<button class="btn btn-primary btn-sm" title="Generate QR"><i class="fa-solid fa-qrcode"></i> QR</button>`;
-          html += `</div>`;
-        } else {
-          html += `<div class="alert alert-danger">${response.message}</div>`;
-        }
+              html += `<div class="pr">`;
+              html += `<a href="${shortUrl}" target="_blank" class="btn btn-success btn-sm" title="Visit Site"><i class="fa-solid fa-diamond-turn-right"></i> Visit</a>`;
+              html += `<span class="dropdown btnShare">`;
+              html += `<button class="btn btn-info btn-sm mx-1 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">`;
+              html += `<i class="fa-solid fa-share-nodes"></i> Share`;
+              html += `</button>`;
+              html += `<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">`;
+              html += `<li><a href="https://www.facebook.com/sharer/sharer.php?u=${shortUrl}" class="facebook" target="_blank"><i class="fa-brands fa-facebook"></i> <span>Facebook</span></a></li>`;
+              html += `<li><a href="https://api.whatsapp.com/send?text=${shortUrl}" class="whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> <span>WhatsApp</span></a></li>`;
+              html += `<li><a href="https://twitter.com/intent/tweet?url=${shortUrl}" class="twitter" target="_blank"><i class="fa-brands fa-twitter"></i> <span>Twitter</span></a></li>`;
+              html += `<li><a href="https://www.linkedin.com/shareArticle?url=${shortUrl}" class="linkedin" target="_blank"><i class="fa-brands fa-linkedin"></i> <span>Linkedin</span></a></li>`;
+              html += `<li><a href="https://pinterest.com/pin/create/button/?url=${shortUrl}" class="pinterest" target="_blank"><i class="fa-brands fa-pinterest"></i> <span>Pinterest</span></a></li>`;
+              html += `<li><a href="mailto:?subject=Share URLGEN on Email&body=:${shortUrl}" class="envelope" target="_blank"><i class="fa fa-envelope"></i> <span>Envelope</span></a></li>`;
+              html += `</ul>`;
+              html += `</span>`;
+              html += `<a href="javascript:;" class="btn btn-secondary btn-sm myURLGenBtn" title="My URLGen History"><i class="fa-solid fa-history"></i> My URLGens</a>`;
+              html += `</div>`;
+            } else {
+              html += `<div class="alert alert-danger">${response.message}</div>`;
+            }
 
-        $(".urlGenResponse").html(html).show();
+            $(".urlGenResponse").html(html).show();
 
-        $("#urlGenForm .longUrl").prop("readonly", true);
-        $("#urlGenForm .urlGenBtn .btn-text")
-          .html("Generate another")
-          .show();
-        $("#urlGenForm .urlGenBtn .loader")
-          .removeClass("shown")
-          .addClass("hidden");
-        $("#urlGenForm .urlGenBtn")
-          .prop("type", "button")
-          .prop("disabled", false);
-      },
+            $("#urlGenForm .longUrl").prop("readonly", true);
+            $("#urlGenForm .urlGenBtn .btn-text")
+              .html("Generate another")
+              .show();
+            $("#urlGenForm .urlGenBtn .loader")
+              .removeClass("shown")
+              .addClass("hidden");
+            $("#urlGenForm .urlGenBtn")
+              .prop("type", "button")
+              .prop("disabled", false);
+          },
+        });
+      });
     });
   });
 
@@ -393,6 +353,7 @@ $(document).ready(function () {
 $('.urlGenHistory .close').on('click', function () {
   $('.urlGenHistory').removeClass('open')
 })
+
 
 function getURLGenHistory() {
   return Promise.resolve($.ajax({

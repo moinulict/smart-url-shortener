@@ -50,6 +50,11 @@
 
   gtag('config', 'G-D3YRK8ZGML');
 </script>
+
+<script src="https://www.google.com/recaptcha/api.js?render={{config('services.recaptcha.key')}}"></script>
+<script>
+  var recaptchaSiteKey = '{{ config('services.recaptcha.key') }}';
+</script>
 </head>
 
 <body class="body">

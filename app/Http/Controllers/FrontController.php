@@ -7,32 +7,60 @@ use App\Http\Requests\ContactStoreRequest;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\UrlGen;
+use App\Models\UrlGenHistory;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('front.index');
     }
 
-    public function getURLGenHistory(){
+    public function getURLGenHistory()
+    {
 
         $items = UrlGen::where('uuid', request()->cookie('urlgenUUID'))->select('id', 'long_url', 'short_url', 'created_at')->latest()->get();
 
         return response()->json(['status' => 'success', 'message' => '', 'urlGens' => $items]);
     }
 
-    public function removeURLGenHistory(){
+    public function removeURLGenHistory(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+            $itemsToMove = UrlGen::where('uuid', request()->cookie('urlgenUUID'))->get();
+            foreach ($itemsToMove as $item) {
+                UrlGenHistory::create([
+                    'user_id' => $item->user_id,
+                    'long_url' => $item->long_url,
+                    'short_url' => $item->short_url,
+                    'unique_id' => $item->unique_id,
+                    'ip' => $item->ip,
+                    'uuid' => $item->uuid,
+                    'deleted_from_ip' => $request->ip(),
+                ]);
+            }
 
-        $items = UrlGen::where('uuid', request()->cookie('urlgenUUID'))->delete();
-
-        return response()->json(['status' => 'success', 'message' => 'Your history has been deleted successfully']);
+            UrlGen::where('uuid', request()->cookie('urlgenUUID'))->delete();
+            DB::commit();
+            return response()->json(['status' => 'success', 'message' => 'Your history has been deleted successfully']);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json(['status' => false, 'error' => $e->getMessage()], 500);
+        }
     }
 
     public function generateShortenUrl(Request $request)
     {
+
+        $captchaResponse = Helper::getCaptchaResponse(["recaptcha" => $request['g-recaptcha-response']]);
+        if ($captchaResponse->success != true || $captchaResponse->score <= 0.3) {
+            return response()->json(['status' => false, 'message' => 'Sorry but, reCaptcha error.']);
+        }
 
         $uniqueId = Helper::generate(6);
 
@@ -42,14 +70,14 @@ class FrontController extends Controller
             "unique_id" => $uniqueId,
             "ip" => $request->ip(),
             "uuid" => request()->cookie('urlgenUUID'),
-            "user_id" => Auth::user()->id
+            "user_id" => @Auth::user()->id
         ];
 
         if ($item = UrlGen::create($data)) {
             return response()->json(['status' => 'success', 'message' => 'Your shorten URL has been generated successfully.', 'data' => $item], 200);
         }
 
-        return response()->json(['status' => 'success', 'message' => 'Something went wrong please try again later']);
+        return response()->json(['status' => false, 'message' => 'Something went wrong please try again later']);
     }
 
     public function redirectToLongUrl($uniqueId)
