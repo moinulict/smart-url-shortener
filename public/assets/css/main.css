@@ -35,7 +35,7 @@
 body {
   font-family: var(--font-primary);
   color: var(--color-default);
-  background: #f4faff;
+  background: #fff;
 }
 
 a {
@@ -296,13 +296,13 @@ section {
 }
 
 .header.sticked {
-  background: rgba(14, 29, 52, 0.9);
+  background: #fff;
   padding: 15px 0;
-  box-shadow: 0px 2px 20px rgba(14, 29, 52, 0.1);
+  box-shadow: 0 1px 4px #ccc;
 }
 
 .header .logo img {
-  max-height: 40px;
+  max-height: 30px;
   margin-right: 6px;
 }
 
@@ -343,9 +343,10 @@ section {
     font-family: var(--font-primary);
     font-size: 16px;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
+    color: #333;
     white-space: nowrap;
     transition: 0.3s;
+    font-weight: bold;
   }
 
   .navbar a i,
@@ -359,7 +360,7 @@ section {
   .navbar .active,
   .navbar .active:focus,
   .navbar li:hover>a {
-    color: #fff;
+    color: #007aff;
   }
 
   .navbar .get-a-quote,
@@ -368,7 +369,7 @@ section {
     padding: 8px 20px;
     margin-left: 30px;
     border-radius: 4px;
-    color: #fff;
+    color: #007aff;
   }
 
   .navbar .get-a-quote:hover,
@@ -1977,7 +1978,7 @@ section {
 .genBox {
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   background: #fff;
-  padding: 15px;
+  padding: 30px;
   border-radius: 5px;
 }
 

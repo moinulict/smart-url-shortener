@@ -11,12 +11,12 @@
   @stop
   @section('contents')
       <!-- ======= Hero Section ======= -->
-      <section class="d-flex align-items-center">
+      <section class="d-flex align-items-center mt-4">
           <div class="container">
-              <div class="row gy-4 justify-content-between">
-                  <div class="col-lg-6">
-                      <div class="genBox">
-                          <h2 data-aos="fade-up">Free URL Shortener Generator</h2>
+              <div class="row gy-4 justify-content-center">
+                  <div class="col-lg-8">
+                      <div class="genBox text-center">
+                          <h1 data-aos="fade-up">Free URL Shortener Generator</h1>
                           <p data-aos="fade-up" data-aos-delay="100">
                               Introducing URLgen, your go-to solution for hassle-free link sharing. With URLgen, you can
                               instantly
@@ -41,43 +41,37 @@
                           <div class="urlGenResponse none pr"></div>
 
 
+
+                          <div class="key-features mt-5 ">
+                            <h3 class="mb-3">URLgen also provides below features without any cost</h3>
+                            <ul>
+                                <li>
+                                    <i class="fa fa-check-double text-success"></i> Bulk Short URLs
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-double text-success"></i> Link Management Features
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-double text-success"></i> Detailed Link Analytics
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-double text-success"></i> Simplifying Complex URLs
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-double text-success"></i> Reducing Typos
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-double text-success"></i> Tracking and Analytics
+                                </li>
+                            </ul>
+                
+                            <div class="mt-3 ">
+                                <button class="btn btn-success btn-block signUpBtn">Create Account</button>
+                            </div>
+                          </div>
                       </div>
-
                   </div>
-
-                  <div class="col-lg-5 ml-auto key-features">
-                    <h3 class="mb-3">URLgen Provides below features without any cost</h3>
-                    <ul>
-                        <li>
-                            <i class="fa fa-check-double text-success"></i> Bulk Short URLs
-                        </li>
-                        <li>
-                            <i class="fa fa-check-double text-success"></i> Link Management Features
-                        </li>
-                        <li>
-                            <i class="fa fa-check-double text-success"></i> Detailed Link Analytics
-                        </li>
-                        <li>
-                            <i class="fa fa-check-double text-success"></i> Simplifying Complex URLs
-                        </li>
-                        <li>
-                            <i class="fa fa-check-double text-success"></i> Reducing Typos
-                        </li>
-                        <li>
-                            <i class="fa fa-check-double text-success"></i> Tracking and Analytics
-                        </li>
-                    </ul>
-
-                    {{-- <div class="mt-3 ">
-                        <button class="btn btn-success btn-block signUpBtn">Create New Account</button>
-                    </div> --}}
-               
-
-                  </div>
-
-
               </div>
-
           </div>
       </section><!-- End Hero Section -->
 

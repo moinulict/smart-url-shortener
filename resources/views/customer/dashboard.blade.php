@@ -7,6 +7,8 @@
           <section>
               <div class="container">
 
+                <div class="alert alert-danger mb-5">We are working hard to provide you a better dashboard. You will get soon. Stay connected. Thanks.</div>
+
                 <div class="d-flex justify-content-between">
                     <div>
                         <h3>Analytics for all your links</h3>

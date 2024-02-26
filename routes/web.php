@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::post('/login', 'AuthController@login');
 
 Route::middleware(['auth'])->prefix('customer')->namespace('Customer')->group(function () {
     Route::get('/dashboard', 'DashboardController@dashboard');
+    Route::get('/coming-soon', function(){
+        return View('customer.coming-soon');
+    });
     Route::get('/logout', 'DashboardController@logout');
 });
 

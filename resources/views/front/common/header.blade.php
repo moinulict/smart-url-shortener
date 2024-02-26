@@ -3,9 +3,7 @@
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
           <a href="{{ url('/') }}" class="logo d-flex align-items-center">
-              <!-- Uncomment the line below if you also wish to use an image logo -->
-              <!-- <img src="assets/img/logo.png" alt=""> -->
-              URLGEN
+             <img src="{{ url('/') }}/assets/img/logo.png" alt="URLGen"> 
           </a>
 
           <i class="mobile-nav-toggle mobile-nav-show fa fa-list"></i>
@@ -14,23 +12,24 @@
               <ul>
                   <li><a href="{{ url('/') }}" class="active">Home</a></li>
                   <li><a href="{{ url('/about') }}">About</a></li>
+                  @if(!Auth::check())
+                  <li><a href="javascript:;" class="myURLGenBtn">My URLGens</a></li>
+                  <li><a href="javascript:;" class="signUpBtn">Sign Up</a></li>
+                  <li><a href="javascript:;" class="loginBtn">Sign In</a></li>
+                  @endif
+                  <li><a href="{{ url('/contact') }}">Contact</a></li>
                   @if(Auth::check())
                   <li class="dropdown">
-                    <a class="dropbtn">Dashboard <i class="fa fa-caret-down ml-1"></i></a>
+                    <a class="dropbtn">Account <i class="fa fa-caret-down ml-1"></i></a>
                     <ul class="dropdown-menu">
                       <li><a href="{{ url('/customer/dashboard') }}">Dashboard</a></li>
-                      <li><a href="{{ url('/customer/profile') }}">My Account</a></li>
-                      <li><a href="{{ url('/customer/my-urls') }}">My URLGens</a></li>
-                      <li><a href="{{ url('/customer/change-password') }}">Change Password</a></li>
+                      <li><a href="{{ url('/customer/coming-soon') }}">My Account</a></li>
+                      <li><a href="{{ url('/customer/coming-soon') }}">My URLGens</a></li>
+                      <li><a href="{{ url('/customer/coming-soon') }}">Change Password</a></li>
                       <li><a href="{{ url('/customer/logout') }}">Logout</a></li>
                     </ul>
                   </li>
-                  @else 
-                  <li><a href="javascript:;" class="myURLGenBtn">My URLGens</a></li>
-                  {{-- <li><a href="javascript:;" class="signUpBtn">Sign Up</a></li>
-                  <li><a href="javascript:;" class="loginBtn">Sign In</a></li> --}}
                   @endif
-                  <li><a href="{{ url('/contact') }}">Contact</a></li>
               </ul>
           </nav><!-- .navbar -->
 
