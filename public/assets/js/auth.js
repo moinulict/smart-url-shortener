@@ -11,6 +11,11 @@ $(document).on("click", ".loginBtn", function () {
     $(".loginModal").modal('show');
 });
 
+$(document).on("click", ".changePasswordBtn", function () {
+    closeAllModals();
+    $(".changePasswordModal").modal('show');
+});
+
 $(document).on("submit", ".createAccountForm", async function (e) {
     e.preventDefault();
     const formData = $(".createAccountForm").serialize();
