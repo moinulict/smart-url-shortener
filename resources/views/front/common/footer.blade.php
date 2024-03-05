@@ -119,8 +119,8 @@
                   <h5 class="modal-title">Change Password</h5>
               </div>
               <div class="modal-body">
-                  <div id="login-errorContainer" class="alert alert-danger" style="display: none;">
-                      <ul id="login-errorList"></ul>
+                  <div id="change-password-errorContainer" class="alert alert-danger" style="display: none;">
+                      <ul id="change-password-errorList"></ul>
                   </div>
                   <form class="changePasswordForm">
                       <div class="mb-3">

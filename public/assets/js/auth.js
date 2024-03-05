@@ -75,18 +75,18 @@ $(document).on("submit", ".changePasswordForm", async function (e) {
 
     if (validateChangePasswordForm()) {
         try {
-            const response = await login(formData);
+            const response = await changePassword(formData);
             if (response.status) {
                 window.location.href = `${baseUrl}/customer/dashboard`;
             } else {
                 $(this).find(':submit').attr('disabled', false);
-                displayErrors('login', response);
+                displayErrors('change-password', response);
             }
             console.log(response);
         } catch (error) {
             $(this).find(':submit').attr('disabled', false);
             if (error.responseJSON) {
-                displayErrors('login', error.responseJSON);
+                displayErrors('change-password', error.responseJSON);
             } else {
                 console.error(error);
             }
@@ -230,6 +230,17 @@ function login(formData) {
         },
         type: "POST",
         url: baseUrl + "/login",
+        data: formData,
+    }));
+}
+
+function changePassword(formData) {
+    return Promise.resolve($.ajax({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        type: "POST",
+        url: baseUrl + "/customer/change-password",
         data: formData,
     }));
 }

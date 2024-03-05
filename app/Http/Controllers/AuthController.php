@@ -36,25 +36,4 @@ class AuthController extends Controller
         return response()->json(['status' => false, 'message' => 'Invalid email or password.'], 500);
     }
 
-
-    public function changePassword(ChangePasswordRequest $request)
-    {
-        $user = Auth::user();
-        $credentials = $request->only('password', 'new_password', 'confirm_password');
-
-        if (!Hash::check($credentials['password'], $user->password)) {
-            return response()->json(['status' => false, 'message' => 'Current password is incorrect.'], 500);
-        }
-
-        if ($credentials['new_password'] != $credentials['confirm_password']) {
-            return response()->json(['status' => false, 'message' => 'Password did not match.'], 500);
-        }
-
-        $user->password = Hash::make($credentials['new_password']);
-        $user->save();
-
-        Auth::logout();
-
-        return response()->json(['status' => 'success', 'message' => 'Password changed successfully.'], 200);
-    }
 }
