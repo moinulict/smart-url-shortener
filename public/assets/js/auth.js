@@ -68,6 +68,32 @@ $(document).on("submit", ".loginForm", async function (e) {
     }
 });
 
+$(document).on("submit", ".changePasswordForm", async function (e) {
+    e.preventDefault();
+    const formData = $(".changePasswordForm").serialize();
+    $(this).find(':submit').attr('disabled', true);
+
+    if (validateChangePasswordForm()) {
+        try {
+            const response = await login(formData);
+            if (response.status) {
+                window.location.href = `${baseUrl}/customer/dashboard`;
+            } else {
+                $(this).find(':submit').attr('disabled', false);
+                displayErrors('login', response);
+            }
+            console.log(response);
+        } catch (error) {
+            $(this).find(':submit').attr('disabled', false);
+            if (error.responseJSON) {
+                displayErrors('login', error.responseJSON);
+            } else {
+                console.error(error);
+            }
+        }
+    }
+});
+
 function isValidEmail(email) {
     // Regular expression for a valid email address
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -121,6 +147,43 @@ function validateLoginForm() {
     const password = $("#loginPassword").val();
     if (password.length < 8) {
         $("#loginPassword-error").text("Password must be at least 8 characters").show();
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function validateChangePasswordForm() {
+    let isValid = true;
+
+    // Reset error messages
+    $(".invalid-feedback").text("");
+
+
+    // Validate password
+    const password = $("#password").val();
+    if (password.length < 8) {
+        $("#password-error").text("Password must be at least 8 characters").show();
+        isValid = false;
+    }
+
+    // Validate password
+    const new_password = $("#new_password").val();
+    if (password.length < 8) {
+        $("#new_password-error").text("New password must be at least 8 characters").show();
+        isValid = false;
+    }
+
+    // Validate password
+    const confirm_password = $("#confirm_password").val();
+    if (password.length < 8) {
+        $("#confirm_password-error").text("Confirm password must be at least 8 characters").show();
+        isValid = false;
+    }
+
+    if (new_password != confirm_password) {
+        $("#new_password-error").text("The password did not match").show();
+        $("#confirm_password-error").text("The password did not match").show();
         isValid = false;
     }
 
