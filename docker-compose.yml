@@ -1,0 +1,69 @@
+version: "3.9"
+services:
+  urlgen-laravel-db:
+    image: mysql:5.7.16
+    container_name: urlgen-laravel-db
+    restart: unless-stopped
+    tty: true
+    environment:
+      MYSQL_DATABASE: urlgen_laravel
+      MYSQL_ROOT_PASSWORD: rootPassword
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+      TZ: Asia/Dhaka
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    networks:
+      - private-network
+
+  urlgen-laravel-phpmyadmin:
+    container_name: urlgen-laravel-phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "7001:80"
+    depends_on:
+      - urlgen-laravel-db
+    environment:
+      PMA_HOST: urlgen-laravel-db
+      MYSQL_ROOT_PASSWORD: rootPassword
+    networks:
+      - private-network
+      - external-network
+
+
+  urlgen-laravel-site:
+    build: .
+    ports:
+      - "7000:80"
+      # - "443:443"
+    volumes:
+      - ./app:/var/www/html/app
+      - ./config:/var/www/html/config
+      - ./database:/var/www/html/database
+      - ./public:/var/www/html/public
+      - ./resources:/var/www/html/resources
+      - ./routes:/var/www/html/routes
+      - ./.env:/var/www/html/.env
+    networks:
+      - private-network
+      - external-network
+    depends_on:
+      - urlgen-laravel-db  
+    # command: bash -c "php artisan queue:work replyEmails & apache2-foreground"
+
+#Docker Networks
+networks:
+  private-network:
+    name: urlgen-laravel-ext-net
+    # driver: bridge
+    # ipam:
+    #   driver: default
+    #   config:
+    #     - subnet: 172.18.0.0/16
+  external-network:
+    name: urlgen-laravel-int-net
+
+#Volumes
+volumes:
+  mysql-data:

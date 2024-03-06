@@ -25,7 +25,7 @@
                       <li><a href="{{ url('/customer/dashboard') }}">Dashboard</a></li>
                       <li><a href="{{ url('/customer/coming-soon') }}">My Account</a></li>
                       <li><a href="{{ url('/customer/coming-soon') }}">My URLGens</a></li>
-                      <li><a href="{{ url('/customer/coming-soon') }}">Change Password</a></li>
+                      <li><a href="javascript:;" class="changePasswordBtn">Change Password</a></li>
                       <li><a href="{{ url('/customer/logout') }}">Logout</a></li>
                     </ul>
                   </li>

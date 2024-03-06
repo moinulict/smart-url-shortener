@@ -27,6 +27,11 @@ Route::middleware(['auth'])->prefix('customer')->namespace('Customer')->group(fu
         return View('customer.coming-soon');
     });
     Route::get('/logout', 'DashboardController@logout');
+    Route::post('/change-password', 'DashboardController@changePassword');
+    // Route::post('/change-password', function(){
+    //     dd('here');
+    //     return response()->json(['status' => 'success', 'message' => 'Password changed successfully.'], 200);
+    // });
 });
 
 

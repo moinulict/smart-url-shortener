@@ -11,6 +11,11 @@ $(document).on("click", ".loginBtn", function () {
     $(".loginModal").modal('show');
 });
 
+$(document).on("click", ".changePasswordBtn", function () {
+    closeAllModals();
+    $(".changePasswordModal").modal('show');
+});
+
 $(document).on("submit", ".createAccountForm", async function (e) {
     e.preventDefault();
     const formData = $(".createAccountForm").serialize();
@@ -56,6 +61,32 @@ $(document).on("submit", ".loginForm", async function (e) {
             $(this).find(':submit').attr('disabled', false);
             if (error.responseJSON) {
                 displayErrors('login', error.responseJSON);
+            } else {
+                console.error(error);
+            }
+        }
+    }
+});
+
+$(document).on("submit", ".changePasswordForm", async function (e) {
+    e.preventDefault();
+    const formData = $(".changePasswordForm").serialize();
+    $(this).find(':submit').attr('disabled', true);
+
+    if (validateChangePasswordForm()) {
+        try {
+            const response = await changePassword(formData);
+            if (response.status) {
+                window.location.href = `${baseUrl}/customer/dashboard`;
+            } else {
+                $(this).find(':submit').attr('disabled', false);
+                displayErrors('change-password', response);
+            }
+            console.log(response);
+        } catch (error) {
+            $(this).find(':submit').attr('disabled', false);
+            if (error.responseJSON) {
+                displayErrors('change-password', error.responseJSON);
             } else {
                 console.error(error);
             }
@@ -122,6 +153,43 @@ function validateLoginForm() {
     return isValid;
 }
 
+function validateChangePasswordForm() {
+    let isValid = true;
+
+    // Reset error messages
+    $(".invalid-feedback").text("");
+
+
+    // Validate password
+    const password = $("#password").val();
+    if (password.length < 8) {
+        $("#password-error").text("Password must be at least 8 characters").show();
+        isValid = false;
+    }
+
+    // Validate password
+    const new_password = $("#new_password").val();
+    if (password.length < 8) {
+        $("#new_password-error").text("New password must be at least 8 characters").show();
+        isValid = false;
+    }
+
+    // Validate password
+    const confirm_password = $("#confirm_password").val();
+    if (password.length < 8) {
+        $("#confirm_password-error").text("Confirm password must be at least 8 characters").show();
+        isValid = false;
+    }
+
+    if (new_password != confirm_password) {
+        $("#new_password-error").text("The password did not match").show();
+        $("#confirm_password-error").text("The password did not match").show();
+        isValid = false;
+    }
+
+    return isValid;
+}
+
 function displayErrors(module, response) {
     const errorContainer = $(`#${module}-errorContainer`);
     const errorList = $(`#${module}-errorList`);
@@ -162,6 +230,17 @@ function login(formData) {
         },
         type: "POST",
         url: baseUrl + "/login",
+        data: formData,
+    }));
+}
+
+function changePassword(formData) {
+    return Promise.resolve($.ajax({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        type: "POST",
+        url: baseUrl + "/customer/change-password",
         data: formData,
     }));
 }
