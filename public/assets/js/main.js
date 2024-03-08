@@ -1,4 +1,7 @@
 const baseUrl = $('meta[name="baseUrl"]').attr("content");
+setTimeout(function () {
+  $('.fixed_top_message').fadeOut('slow');
+}, 5000);
 
 document.addEventListener("DOMContentLoaded", () => {
   "use strict";
@@ -244,7 +247,6 @@ function copyToClipBoard(textToCopy, mgsEl) {
 
     // Remove the temporary textarea
     document.body.removeChild(textarea);
-
     mgsEl.show();
     setTimeout(function () {
       mgsEl.hide();

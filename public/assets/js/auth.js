@@ -71,13 +71,16 @@ $(document).on("submit", ".loginForm", async function (e) {
 $(document).on("submit", ".changePasswordForm", async function (e) {
     e.preventDefault();
     const formData = $(".changePasswordForm").serialize();
-    $(this).find(':submit').attr('disabled', true);
 
     if (validateChangePasswordForm()) {
         try {
+            $(this).find(':submit').attr('disabled', true);
             const response = await changePassword(formData);
             if (response.status) {
-                window.location.href = `${baseUrl}/customer/dashboard`;
+                displayMessage(response.message, response.message_type);
+                setTimeout(function() {
+                    window.location.href = baseUrl;
+                }, 5000);
             } else {
                 $(this).find(':submit').attr('disabled', false);
                 displayErrors('change-password', response);
@@ -190,6 +193,15 @@ function validateChangePasswordForm() {
     return isValid;
 }
 
+function displayMessage(message, type = 'info') {
+    var element = $('.javascriptAlert');
+    element.html(message).show();
+    // Remove all classes starting with 'alert-'
+    element.removeClass(function(index, className) {
+        return (className.match(/\balert-\S+/g) || []).join(' ');
+    });
+    element.addClass(`alert-${type}`);
+}
 function displayErrors(module, response) {
     const errorContainer = $(`#${module}-errorContainer`);
     const errorList = $(`#${module}-errorList`);

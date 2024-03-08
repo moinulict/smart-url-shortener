@@ -2190,3 +2190,48 @@ ul {
   margin-right: 5px;
   color: #0d6efd !important;
 }
+.btn-social{
+  border-radius: 5px;
+  display: inline-block;
+  padding: 8px;
+  font-size: 18px;
+  border: 1px solid rgb(158, 158, 158);
+  text-transform: uppercase;
+}
+.btn-social:hover{
+  background-color: rgb(245, 245, 245);
+  border-color: rgb(224, 224, 224);
+}
+.btn-facebook, .btn-facebook:hover{
+  background-color: #1877F2;
+  color: #fff;
+}
+.btn-twitter, .btn-twitter:hover{
+  background-color: #439EF0;
+  color: #fff;
+}
+.btn-linkedin, .btn-linkedin:hover{
+  background-color: #0867c2;
+  color: #fff;
+}
+.btn-google, .btn-google:hover{
+  background-color: #D02C1F;
+  color: #fff;
+}
+.content-header{
+  margin-bottom: 20px;
+}
+.fixed_top_message {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
+  padding: 5px;
+  border-radius: 0;
+  text-align: center;
+}
+.copiedAtHistory{
+  position: absolute;
+  top: 35px;
+  font-size: 12px;
+}

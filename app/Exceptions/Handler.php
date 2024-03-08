@@ -38,4 +38,14 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    public function render($request, Throwable $exception)
+    {
+        if ($exception instanceof AuthorizationException) {
+            // Redirect unauthorized users to the root URL
+            return redirect('/');
+        }
+
+        return parent::render($request, $exception);
+    }
 }

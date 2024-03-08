@@ -14,23 +14,27 @@ use Illuminate\Support\Str;
 |
 */
 
-Route::get('/', 'FrontController@index')->middleware('setDeviceUuidCookie');
+Route::get('/', 'FrontController@index')->middleware('setDeviceUuidCookie')->name('root');
 Route::get('/getURLGenHistory', 'FrontController@getURLGenHistory');
 Route::get('/removeURLGenHistory', 'FrontController@removeURLGenHistory');
 
 Route::post('/registerAccount', 'AuthController@registerAccount');
 Route::get('social-login/{provider}', 'SocialController@redirect');
 Route::get('social-login/{provider}/callback','SocialController@Callback');
-Route::post('/login', 'AuthController@login');
+Route::post('/login', 'AuthController@login')->name('login');
 
 
 Route::middleware(['auth'])->prefix('customer')->namespace('Customer')->group(function () {
-    Route::get('/dashboard', 'DashboardController@dashboard');
+    Route::get('/dashboard', 'DashboardController@dashboard')->name('dashboard');
+    Route::get('/account', 'DashboardController@account');
+    Route::post('/account', 'DashboardController@updateAccount');
+    Route::get('/my-url-gens', 'DashboardController@myUrls');
     Route::get('/coming-soon', function(){
         return View('customer.coming-soon');
     });
     Route::get('/logout', 'DashboardController@logout');
-    Route::post('/change-password', 'DashboardController@changePassword');
+    Route::get('/change-password', 'DashboardController@changePassword');
+    Route::post('/change-password', 'DashboardController@updatePassword');
     // Route::post('/change-password', function(){
     //     dd('here');
     //     return response()->json(['status' => 'success', 'message' => 'Password changed successfully.'], 200);

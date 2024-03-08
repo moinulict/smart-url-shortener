@@ -41,4 +41,31 @@ class Helper
         $result = file_get_contents($url, false, $context);
         return json_decode($result);
     }
+
+    public static function formatTimeDifference($createdAt)
+    {
+        $currentTime = time(); // Current timestamp
+        $createdAt = strtotime($createdAt); // Convert createdAt to timestamp
+        $timeDifference = $currentTime - $createdAt;
+    
+        // Define time intervals for formatting
+        $intervals = [
+            ['label' => 'day', 'seconds' => 86400],
+            ['label' => 'hour', 'seconds' => 3600],
+            ['label' => 'minute', 'seconds' => 60],
+            ['label' => 'second', 'seconds' => 1]
+        ];
+    
+        // Format the time difference
+        $result = '';
+        foreach ($intervals as $interval) {
+            $count = floor($timeDifference / $interval['seconds']);
+            if ($count > 0) {
+                $result .= $count . ' ' . ($count === 1 ? $interval['label'] : $interval['label'] . 's') . ' ago';
+                break;
+            }
+        }
+    
+        return $result;
+    }
 }
