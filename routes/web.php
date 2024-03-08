@@ -19,7 +19,10 @@ Route::get('/getURLGenHistory', 'FrontController@getURLGenHistory');
 Route::get('/removeURLGenHistory', 'FrontController@removeURLGenHistory');
 
 Route::post('/registerAccount', 'AuthController@registerAccount');
+Route::get('social-login/{provider}', 'SocialController@redirect');
+Route::get('social-login/{provider}/callback','SocialController@Callback');
 Route::post('/login', 'AuthController@login');
+
 
 Route::middleware(['auth'])->prefix('customer')->namespace('Customer')->group(function () {
     Route::get('/dashboard', 'DashboardController@dashboard');
