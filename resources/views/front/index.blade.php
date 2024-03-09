@@ -14,10 +14,10 @@
       <section class="d-flex align-items-center mt-4">
           <div class="container">
               <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-8">
-                      <div class="genBox text-center">
+                  <div class="col-lg-7">
+                      <div class="genBox text-center mb-3 px-5">
                           <h1 data-aos="fade-up">Free URL Shortener Generator</h1>
-                          <p data-aos="fade-up" data-aos-delay="100">
+                          <p data-aos="fade-up" data-aos-delay="100" class="px-5">
                               Introducing URLgen, your go-to solution for hassle-free link sharing. With URLgen, you can
                               instantly
                               generate lengthy web URL into concise and shorten links.
@@ -40,33 +40,19 @@
 
                           <div class="urlGenResponse none pr"></div>
 
+                      </div>
 
-
-                          <div class="key-features mt-5 ">
-                            <h3 class="mb-3">URLgen also provides below features without any cost</h3>
-                            <ul>
-                                <li>
-                                    <i class="fa fa-check-double text-success"></i> Bulk Short URLs
-                                </li>
-                                <li>
-                                    <i class="fa fa-check-double text-success"></i> Link Management Features
-                                </li>
-                                <li>
-                                    <i class="fa fa-check-double text-success"></i> Detailed Link Analytics
-                                </li>
-                                <li>
-                                    <i class="fa fa-check-double text-success"></i> Simplifying Complex URLs
-                                </li>
-                                <li>
-                                    <i class="fa fa-check-double text-success"></i> Reducing Typos
-                                </li>
-                                <li>
-                                    <i class="fa fa-check-double text-success"></i> Tracking and Analytics
-                                </li>
-                            </ul>
+                      <div class="whiteBox mt-5 text-center">
+                        <div class="key-features px-5">
+                            <h2 class="mb-3">URLgen also provides below features without any cost</h2>
+                            <p>
+                                Bulk short URLs generation,  Link management features,
+                                Detailed link analytics, Simplifying complex URLs, Tracking and analytics,
+                                powerfull dashboard, API integration and support.
+                            </p>
                 
                             <div class="mt-3 ">
-                                <button class="btn btn-success btn-block signUpBtn">Create Account</button>
+                                <button class="btn btn-primary btn-lg btn-block signUpBtn">Create Account</button>
                             </div>
                           </div>
                       </div>
@@ -78,9 +64,10 @@
       <section id="featured-services" class="featured-services">
           <div class="container">
 
-              <div class="row gy-4">
+              <div class="row gy-4 justify-content-center">
 
-                  <div class="col-lg-12">
+                  <div class="col-lg-7">
+                    <div class="hidden-text">
                       <p>
                           When it comes to URL shortening services, Google's URL shortener was once a well-known and widely
                           used tool.
@@ -97,12 +84,6 @@
                           individuals and businesses alike. Plus, it offers a range of features like tracking and analytics,
                           ensuring that you can monitor the performance of your short links effortlessly.
                       </p>
-
-
-                      <div class="text-center">
-                          <img class="my-3 img-fluid" src="https://assets.thesupersoft.com/genio-assets/img/Free-URL-Shortner-Banner.jpg"
-                              alt="Free URL Shortner Banner" title="Free URL Shortner Banner">
-                      </div>
 
                       <p>
                           Bitly is another well-known name in the URL shortening arena. However, URLgen competes
@@ -151,6 +132,7 @@
                           enhance your LinkedIn presence, URLgen has you covered with its user-friendly platform and
                           diverse features.
                       </p>
+                    </div>
 
                       <h3>Why Use a URL Shortener?</h3>
                       <p>Shortening URLs by <a href="{{ url('/') }}">urlgen.io</a> provides several significant
@@ -204,6 +186,8 @@
 
       <section id="faq" class="faq">
           <div class="container ">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
 
               <div class="section-header">
                   <h2>Frequently Asked Questions</h2>
@@ -279,7 +263,8 @@
 
 
               </div>
-
+            </div>
+        </div>
           </div>
       </section>
   @stop

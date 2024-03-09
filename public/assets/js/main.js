@@ -18,13 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
   /**
    * Sticky header on scroll
    */
-  // const selectHeader = document.querySelector('#header');
-  // const dataPage = selectHeader.getAttribute('data-page');
-  // if (selectHeader && dataPage === 'home') {
-  //   document.addEventListener('scroll', () => {
-  //     window.scrollY > 100 ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
-  //   });
-  // }
+  const selectHeader = document.querySelector('#header');
+  const dataPage = selectHeader.getAttribute('data-page');
+  if (selectHeader && dataPage === 'home') {
+    document.addEventListener('scroll', () => {
+      window.scrollY > 100 ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
+    });
+  }
 
   /**
    * Scroll top button
@@ -163,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
             longUrl: longUrl,
             'g-recaptcha-response': token
           },
-          // data: "longUrl=" + longUrl,
           success: function (response) {
             console.log(response);
             let html = ``;
@@ -485,7 +484,7 @@ function downloadPng(urlToEncode, size, code) {
   // Create an anchor element to trigger download
   var link = document.createElement('a');
   link.href = canvas.toDataURL("image/png");
-  link.download = code+'.png';
+  link.download = code+'-'+size+'.png';
 
   // Simulate a click to trigger the download
   document.body.appendChild(link);

@@ -1,5 +1,5 @@
   <!-- ======= Header ======= -->
-  <header id="header" class="header d-flex align-items-center fixed-top sticked">
+  <header id="header" class="header d-flex align-items-center fixed-top" data-page="home">
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
           <a href="{{ url('/') }}" class="logo d-flex align-items-center">

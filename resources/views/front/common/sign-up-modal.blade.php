@@ -51,7 +51,7 @@
                     <div class="text-right">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
                             data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Create Account</button>
+                        <button type="submit" class="btn btn-primary">Create Account</button>
                     </div>
                     <div class="text-left">
                         Already have an account <a href="javascript:;" class="loginBtn">Sign In</a>

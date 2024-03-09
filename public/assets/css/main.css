@@ -20,7 +20,7 @@
 /* Colors */
 :root {
   --color-default: #0a0d13;
-  --color-primary: #005263;
+  --color-primary: #2FB7EA;
   --color-secondary: #0e1d34;
 }
 
@@ -35,7 +35,7 @@
 body {
   font-family: var(--font-primary);
   color: var(--color-default);
-  background: #fff;
+  background: #f9f9f9;
 }
 
 a {
@@ -56,7 +56,12 @@ h5,
 h6 {
   font-family: var(--font-primary);
 }
-
+h2{
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #3c3c3c;
+  letter-spacing: -1px;
+}
 /*--------------------------------------------------------------
 # Sections & Section Header
 --------------------------------------------------------------*/
@@ -1772,7 +1777,14 @@ section {
 .hero form .btn-primary:hover {
   background-color: #2756ff;
 }
-
+.btn-primary, .bg-primary{
+  background-color: #2FB7EA !important;
+  border-color: #2FB7EA;
+}
+.btn-primary:hover{
+  background-color: #2091b9;
+  border-color: #2091b9;
+}
 .hero .stats-item {
   padding: 30px;
   width: 100%;
@@ -2065,6 +2077,7 @@ h1 {
 
 h3 {
   font-size: 20px;
+  font-weight: bold;
 }
 
 .why {
@@ -2118,9 +2131,10 @@ ul {
 
 .urlGenHistory .close {
   position: absolute;
-  right: 20px;
-  top: 10px;
-  font-size: 24px;
+  right: 25px;
+  top: 25px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .text-right {
@@ -2237,4 +2251,18 @@ ul {
 }
 .BtnQrCode .dropdown-menu{
   width: max-content;
+}
+.whiteBox{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background: #fff;
+  padding: 30px;
+  border-radius: 5px;
+}
+.hidden-text{
+  color: #fff;
+  font-size: 0px;
+}
+.hidden-text p{
+  margin-bottom: 0px;
+
 }
