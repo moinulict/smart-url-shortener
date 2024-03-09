@@ -182,6 +182,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
               html += `<div class="pr">`;
               html += `<a href="${shortUrl}" target="_blank" class="btn btn-success btn-sm" title="Visit Site"><i class="fa-solid fa-diamond-turn-right"></i> Visit</a>`;
+              html += `<span class="dropdown BtnQrCode">`;
+              html += `<button data-url="${shortUrl}" class="btn btn-info btn-sm ms-1 dropdown-toggle" type="button" id="qrCodeGenBtn" data-bs-toggle="dropdown" aria-expanded="false">`;
+              html += `<i class="fa-solid fa-qrcode"></i> QR`;
+              html += `</button>`;
+              html += `<div class="dropdown-menu p-3" aria-labelledby="qrCodeGenBtn">`;
+              html += `<div class="my-2 d-flex flex-grow">`;
+              html += `<div id="qrCodeImg"></div>`;
+              html += `<div class="ms-2">`;
+              html += `<a href="javascript:;" id="downloadSvgBtn" data-url="${shortUrl}" class="btn btn-primary d-block" title="Download as SVG">SVG</a>`;
+              html += `<a href="javascript:;" id="downloadPngBtn" data-url="${shortUrl}" class="btn btn-info d-block mt-2" title="Download as PNG">PNG</a>`;
+              html += `</div>`;
+              html += `</div>`;
+              html += `</div>`;
+              html += `</span>`;
               html += `<span class="dropdown btnShare">`;
               html += `<button class="btn btn-info btn-sm mx-1 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">`;
               html += `<i class="fa-solid fa-share-nodes"></i> Share`;
@@ -419,3 +433,81 @@ function generatePagination(response) {
     console.log('Clicked on page ' + pageNumber);
   });
 }
+
+function generateQRCode(url) {
+  var qrcode = new QRCode(document.getElementById("qrCodeImg"), {
+    text: url,
+    width: 128,
+    height: 128
+  });
+}
+
+// Function to generate QR code for download
+function generateDownloadQRCode(url, width, height) {
+  var downloadQrCode = new QRCode(document.createElement("div"), {
+      text: url,
+      width: width,
+      height: height,
+  });
+
+  // Return the canvas element for download
+  return downloadQrCode._el.childNodes[0].childNodes[0].childNodes[1];
+}
+
+$(document).on("click", "#qrCodeGenBtn", async function () {
+  var urlToEncode = $(this).data('url');
+  generateQRCode(urlToEncode);
+})
+
+// Function to trigger QR code download as SVG
+function downloadSvg() {
+  var svgElement = document.querySelector('#qrcode svg');
+  var dataUri = convertSvgToDataUri(svgElement);
+
+  // Create an anchor element to trigger download
+  var link = document.createElement('a');
+  link.href = dataUri;
+  link.download = 'qrcode.svg';
+
+  // Simulate a click to trigger the download
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// Function to convert SVG to Data URI
+function convertSvgToDataUri(svgElement) {
+  var svgString = new XMLSerializer().serializeToString(svgElement);
+  return 'data:image/svg+xml;base64,' + btoa(svgString);
+}
+
+
+// Function to trigger QR code download as PNG
+function downloadPng(urlToEncode) {
+  var width = 320;
+  var height = 320;
+
+  if (width && height) {
+      var canvas = generateDownloadQRCode(urlToEncode, parseInt(width), parseInt(height));
+
+      // Create an anchor element to trigger download
+      var link = document.createElement('a');
+      link.href = canvas.toDataURL("image/png");
+      link.download = 'qrcode.png';
+
+      // Simulate a click to trigger the download
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+  }
+}
+
+$(document).on("click", "#downloadSvgBtn", async function () {
+  var urlToEncode = $(this).data('url');
+  downloadSvg(urlToEncode);
+})
+
+$(document).on("click", "#downloadPngBtn", async function () {
+  var urlToEncode = $(this).data('url');
+  downloadPng(urlToEncode);
+})
