@@ -2235,3 +2235,6 @@ ul {
   top: 35px;
   font-size: 12px;
 }
+.BtnQrCode .dropdown-menu{
+  width: max-content;
+}
