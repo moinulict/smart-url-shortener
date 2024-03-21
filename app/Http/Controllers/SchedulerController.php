@@ -24,6 +24,7 @@ class SchedulerController extends Controller
 
                         $data = $data['data'];
                         $genGeoData = [
+                            "user_id" => $value->user_id,
                             "url_gen_tracking_id" => $value->id,
                             "url_gens_id" => $value->url_gens_id,
                             "ip" => $value->id,
