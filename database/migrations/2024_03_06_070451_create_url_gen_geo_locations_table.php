@@ -16,7 +16,7 @@ class CreateUrlGenGeoLocationsTable extends Migration
         Schema::create('url_gen_geo_locations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('url_gens_id')->index(true);
-            $table->unsignedBigInteger('url_gen_tracking_id')->index(true);
+            $table->unsignedBigInteger('url_gen_tracking_id')->unique();
             $table->ipAddress('ip')->nullable()->index();
             $table->string('version', 255)->nullable();
             $table->string('city', 255)->nullable()->index();
