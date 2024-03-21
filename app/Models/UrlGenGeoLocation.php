@@ -10,8 +10,10 @@ class UrlGenGeoLocation extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'url_gens_id',
         'url_gen_tracking_id',
+        'date_time',
         'ip',
         'city',
         'region',
