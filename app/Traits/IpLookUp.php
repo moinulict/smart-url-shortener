@@ -27,6 +27,7 @@ trait IpLookUp
             $continent = $data['continent']['names']['en'];
             $continentCode = $data['continent']['code'];
             $country = $data['country']['names']['en'];
+            $countryCode = $data['country']['iso_code'];
             $latitude = $data['location']['latitude'];
             $longitude = $data['location']['longitude'];
             $timeZone = $data['location']['time_zone'];
@@ -41,6 +42,7 @@ trait IpLookUp
                 'city' => $city,
                 'continent' => $continent,
                 'continent_code' => $continentCode,
+                'country_code' => $countryCode,
                 'country_name' => $country,
                 'latitude' => $latitude,
                 'longitude' => $longitude,
@@ -49,7 +51,6 @@ trait IpLookUp
                 'region' => $subdivision1,
                 'subdivision2' => $subdivision2
             ];
-            
             // Return the result as JSON
             return response()->json($result);
         } else {

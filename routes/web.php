@@ -64,9 +64,11 @@ Route::post('/blogs', function(){
     return view('front.blogs');
 });
 Route::post('/contact', 'FrontController@postContact');
+//scheduler
+Route::get('/t', 'SchedulerController@trackingIpToGeoLocation');
+Route::get('/trackingIpToGeoLocation', 'SchedulerController@trackingIpToGeoLocation');
+
+
 
 Route::get('/{uniqueId}', 'FrontController@redirectToLongUrl');
 Route::post('/generateShortenUrl', 'FrontController@generateShortenUrl');
-
-//scheduler
-Route::get('/trackingIpToGeoLocation', 'SchedulerController@trackingIpToGeoLocation');
