@@ -12,6 +12,7 @@ class UrlGenTracking extends Model
     protected $fillable = [
         'user_id',
         'url_gens_id',
-        'ip'
+        'ip',
+        'is_processed'
     ];
 }

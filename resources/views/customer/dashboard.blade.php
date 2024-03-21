@@ -7,7 +7,7 @@
           <section>
               <div class="container">
 
-                <div class="alert alert-danger mb-5">We are working hard to provide you a better dashboard. You will get soon. Stay connected. Thanks.</div>
+                {{-- <div class="alert alert-danger mb-5">We are working hard to provide you a better dashboard. You will get soon. Stay connected. Thanks.</div> --}}
 
                 <div class="d-flex justify-content-between content-header">
                     <div>
@@ -23,6 +23,7 @@
                   <div class="row">
 
                     <div class="col-xl-3 col-sm-6 col-12 my-2"> 
+                      <a href="{{ url('customer/my-url-gens') }}">
                         <div class="card">
                           <div class="card-content">
                             <div class="card-body">
@@ -38,6 +39,7 @@
                             </div>
                           </div>
                         </div>
+                      </a>
                       </div>
 
                       <div class="col-xl-3 col-sm-6 col-12 my-2">
@@ -69,6 +71,24 @@
                                 <div class="text-right">
                                   <h3 class="fwb text-success">{{ $totalUniqueVisitors }}</h3>
                                   <span>Total Unique Visitors</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xl-3 col-sm-6 col-12 my-2">
+                        <div class="card">
+                          <div class="card-content">
+                            <div class="card-body">
+                              <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                  <i class="fa fa-user text-success fa-2x"></i>
+                                </div>
+                                <div class="text-right">
+                                  <h3 class="fwb text-success">{{ $countLast24Hours }}</h3>
+                                  <span>Visitors in Last 24 Hours</span>
                                 </div>
                               </div>
                             </div>

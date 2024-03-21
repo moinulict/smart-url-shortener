@@ -105,10 +105,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function isValidDomain(url) {
-    var regex =
-      /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/?([^\s]*)$/;
+    // var regex =
+    //   /^(https?:\/\/)?(www\.)?([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}\/?([^\s]*)$/;
 
-    return regex.test(url);
+    // return regex.test(url);
+    var regex =
+    /^(https?:\/\/)?(www\.)?(([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.[a-zA-Z]{2,}|(\d{1,3}\.){3}\d{1,3})\/?([^\s]*)$/;
+
+  return regex.test(url);
   }
 
   const urlGenBtn = document.querySelector(".urlGenBtn");

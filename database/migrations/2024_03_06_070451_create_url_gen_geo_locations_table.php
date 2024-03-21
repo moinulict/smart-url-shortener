@@ -17,14 +17,14 @@ class CreateUrlGenGeoLocationsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('url_gens_id')->index(true);
             $table->unsignedBigInteger('url_gen_tracking_id')->index(true);
-            $table->ipAddress('ip')->nullable();
+            $table->ipAddress('ip')->nullable()->index();
             $table->string('version', 255)->nullable();
-            $table->string('city', 255)->nullable();
+            $table->string('city', 255)->nullable()->index();
             $table->string('region', 255)->nullable();
             $table->string('region_code', 255)->nullable();
             $table->string('country_code', 255)->nullable();
             $table->string('country_code_iso3', 255)->nullable();
-            $table->string('country_name', 255)->nullable();
+            $table->string('country_name', 255)->nullable()->index();
             $table->string('country_capital', 255)->nullable();
             $table->string('country_tld', 255)->nullable();
             $table->string('continent_code', 255)->nullable();

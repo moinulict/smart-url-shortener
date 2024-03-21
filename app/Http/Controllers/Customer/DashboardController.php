@@ -5,19 +5,31 @@ namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChangePasswordRequest;
 use App\Models\UrlGen;
+use App\Models\UrlGenGeoLocation;
 use App\Models\UrlGenTracking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
     public function dashboard(){
 
+        $userID = Auth::user()->id;
+
+        $totalLinks = UrlGen::where('user_id', $userID)->count();
+        $totalVisitors = UrlGenGeoLocation::where('user_id', $userID)->count();
+        $totalUniqueVisitors = UrlGenGeoLocation::where('user_id', $userID)->groupBy('ip')->select('ip')->get()->count();
+
+        $twentyFourHoursAgo = Carbon::now()->subHours(24);
+        $countLast24Hours = UrlGenGeoLocation::where('user_id', $userID)->where('date_time', '>=', $twentyFourHoursAgo)->count();
+
         $data = array(
-            "totalLinks" => UrlGen::where('user_id', Auth::user()->id)->count(),
-            "totalVisitors" => UrlGenTracking::where('user_id', Auth::user()->id)->count(),
-            "totalUniqueVisitors" => UrlGenTracking::where('user_id', Auth::user()->id)->groupBy('ip')->count()
+            "totalLinks" => $totalLinks,
+            "totalVisitors" => $totalVisitors,
+            "totalUniqueVisitors" => $totalUniqueVisitors,
+            "countLast24Hours" => $countLast24Hours
         );
 
         return view('customer/dashboard')->with($data);

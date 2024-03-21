@@ -65,8 +65,7 @@ Route::post('/blogs', function(){
 });
 Route::post('/contact', 'FrontController@postContact');
 //scheduler
-Route::get('/t', 'SchedulerController@trackingIpToGeoLocation');
-Route::get('/trackingIpToGeoLocation', 'SchedulerController@trackingIpToGeoLocation');
+Route::get('/migrateIpToGeoLocation', 'SchedulerController@trackingIpToGeoLocation');
 
 
 

@@ -20,25 +20,30 @@ class SchedulerController extends Controller
                     $ipResponse = $this->getIpDetails($value->ip);
                     $content = $ipResponse->getContent();
                     $data = json_decode($content, true);
+                    if ($data['status']) {
 
-                    $genGeoData = [
-                        "url_gen_tracking_id" => $value->id,
-                        "url_gens_id" => $value->url_gens_id,
-                        "ip" => $value->id,
-                        "city" => $data['city'],
-                        "country_name" => $data['country_name'],
-                        "country_code" => $data['country_code'],
-                        "postal" => $data['postal'],
-                        "latitude" => $data['latitude'],
-                        "longitude" => $data['longitude'],
-                        "timezone" => $data['timezone'],
-                        "continent_code" => $data['continent_code'],
-                        "region" => $data['region'],
-                        "isp" => $data['isp'],
-                        "isp_organization" => $data['isp_organization'],
-                    ];
+                        $data = $data['data'];
+                        $genGeoData = [
+                            "url_gen_tracking_id" => $value->id,
+                            "url_gens_id" => $value->url_gens_id,
+                            "ip" => $value->id,
+                            "city" => $data['city'],
+                            "country_name" => $data['country_name'],
+                            "country_code" => $data['country_code'],
+                            "postal" => $data['postal'],
+                            "latitude" => $data['latitude'],
+                            "longitude" => $data['longitude'],
+                            "timezone" => $data['timezone'],
+                            "continent_code" => $data['continent_code'],
+                            "region" => $data['region'],
+                            "isp" => $data['isp'],
+                            "isp_organization" => $data['isp_organization'],
+                        ];
 
-                    UrlGenGeoLocation::create($genGeoData);
+                        UrlGenGeoLocation::create($genGeoData);
+                        UrlGenTracking::where('id', $value->id)->update(['is_processed' => 1]);
+
+                    }
                 } catch (\Throwable $th) {
                     //throw $th;
                 }
