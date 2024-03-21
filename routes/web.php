@@ -67,3 +67,6 @@ Route::post('/contact', 'FrontController@postContact');
 
 Route::get('/{uniqueId}', 'FrontController@redirectToLongUrl');
 Route::post('/generateShortenUrl', 'FrontController@generateShortenUrl');
+
+//scheduler
+Route::get('/trackingIpToGeoLocation', 'SchedulerController@trackingIpToGeoLocation');

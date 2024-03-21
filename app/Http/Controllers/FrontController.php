@@ -8,6 +8,7 @@ use App\Models\Contact;
 use Illuminate\Http\Request;
 use App\Models\UrlGen;
 use App\Models\UrlGenHistory;
+use App\Models\UrlGenTracking;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
@@ -80,7 +81,7 @@ class FrontController extends Controller
         return response()->json(['status' => false, 'message' => 'Something went wrong please try again later']);
     }
 
-    public function redirectToLongUrl($uniqueId)
+    public function redirectToLongUrl(Request $request, $uniqueId)
     {
         if (!$uniqueId) {
             return abort(404);
@@ -90,6 +91,13 @@ class FrontController extends Controller
         if (!$item) {
             return abort(404);
         }
+
+        $urlGenTrackingData = [
+            "user_id" => @$item->user_id,
+            "url_gens_id" => @$item->id,
+            "ip" => $request->ip(),
+        ];
+        UrlGenTracking::create($urlGenTrackingData);
 
         return Redirect::away($this->ensureUrlProtocol($item->long_url));
     }
