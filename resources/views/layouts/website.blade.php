@@ -55,6 +55,8 @@
 <script>
   var recaptchaSiteKey = '{{ config('services.recaptcha.key') }}';
 </script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6606688867547710"
+     crossorigin="anonymous"></script>
 </head>
 
 <body class="body">
