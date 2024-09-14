@@ -17,10 +17,10 @@ class SetDeviceUuidCookie
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!$request->hasCookie('urlgenUUID')) {
+        if (!$request->hasCookie('SmartURLShortenerUUID')) {
             $uuid = Str::uuid()->toString();
             $response = $next($request);
-            $response->cookie('urlgenUUID', $uuid, 60 * 24 * 365);
+            $response->cookie('SmartURLShortenerUUID', $uuid, 60 * 24 * 365);
 
             return $response;
         }

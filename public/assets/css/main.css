@@ -2191,9 +2191,10 @@ ul {
 }
 
 .logo {
-  font-size: 2rem;
-  color: #fff;
+  font-size: 22px;
+  color: #007aff;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .key-features ul li {

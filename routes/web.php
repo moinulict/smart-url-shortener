@@ -35,10 +35,6 @@ Route::middleware(['auth'])->prefix('customer')->namespace('Customer')->group(fu
     Route::get('/logout', 'DashboardController@logout');
     Route::get('/change-password', 'DashboardController@changePassword');
     Route::post('/change-password', 'DashboardController@updatePassword');
-    // Route::post('/change-password', function(){
-    //     dd('here');
-    //     return response()->json(['status' => 'success', 'message' => 'Password changed successfully.'], 200);
-    // });
 });
 
 
@@ -56,12 +52,6 @@ Route::get('/privacy-policy', function () {
 });
 Route::get('/disclaimer', function () {
     return view('front.disclaimer');
-});
-Route::get('/unlocking-the-power-of-URLGen:-your-ultimate-URL-shortening-solution', function () {
-    return view('front.blog-1');
-});
-Route::post('/blogs', function(){
-    return view('front.blogs');
 });
 Route::post('/contact', 'FrontController@postContact');
 //scheduler

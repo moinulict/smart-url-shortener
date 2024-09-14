@@ -3,7 +3,7 @@
       <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
           <a href="{{ url('/') }}" class="logo d-flex align-items-center">
-              <img src="{{ url('/') }}/assets/img/logo.png" alt="URLGen">
+            Smart URL Shortener
           </a>
 
           <i class="mobile-nav-toggle mobile-nav-show fa fa-list"></i>
@@ -11,9 +11,9 @@
           <nav id="navbar" class="navbar">
               <ul>
                   <li><a href="{{ url('/') }}" class="active">Home</a></li>
-                  <li><a href="{{ url('/about') }}">About</a></li>
+                  <li><a href="#">About</a></li>
                   @if (!Auth::check())
-                      <li><a href="javascript:;" class="myURLGenBtn">My URLGens</a></li>
+                      <li><a href="javascript:;" class="myURLGenBtn">My Smart URLs</a></li>
                       {{-- <li><a href="javascript:;" class="signUpBtn">Sign Up</a></li> --}}
                       <li><a href="javascript:;" class="loginBtn">Sign In</a></li>
                   @endif
@@ -24,7 +24,7 @@
                           <ul class="dropdown-menu">
                               <li><a href="{{ url('/customer/dashboard') }}">Dashboard</a></li>
                               <li><a href="{{ url('/customer/account') }}">My Account</a></li>
-                              <li><a href="{{ url('/customer/my-url-gens') }}">My URLGens</a></li>
+                              <li><a href="{{ url('/customer/my-url-gens') }}">My Smart URLs</a></li>
                               @if(!Auth::user()->provider)
                                 <li><a href="{{ url('/customer/change-password') }}">Change Password</a></li>
                               @endif
@@ -46,7 +46,7 @@
   <nav class="urlGenHistory">
       <a href="javascript:;"><i class="mobile-nav-toggle close fa fa-x"></i></a>
 
-      <h3>Your URLGens</h3>
+      <h3>Your Smart URL Shortener</h3>
       <hr>
       <div class="urlGenHistoryResponse"></div>
       {{-- <div id="pagination"></div> --}}

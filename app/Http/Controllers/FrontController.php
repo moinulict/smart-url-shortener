@@ -24,7 +24,7 @@ class FrontController extends Controller
     public function getURLGenHistory()
     {
 
-        $items = UrlGen::where('uuid', request()->cookie('urlgenUUID'))->select('id', 'long_url', 'short_url', 'created_at')->latest()->get();
+        $items = UrlGen::where('uuid', request()->cookie('SmartURLShortenerUUID'))->select('id', 'long_url', 'short_url', 'created_at')->latest()->get();
 
         return response()->json(['status' => 'success', 'message' => '', 'urlGens' => $items]);
     }
@@ -33,7 +33,7 @@ class FrontController extends Controller
     {
         try {
             DB::beginTransaction();
-            $itemsToMove = UrlGen::where('uuid', request()->cookie('urlgenUUID'))->get();
+            $itemsToMove = UrlGen::where('uuid', request()->cookie('SmartURLShortenerUUID'))->get();
             foreach ($itemsToMove as $item) {
                 UrlGenHistory::create([
                     'user_id' => $item->user_id,
@@ -46,7 +46,7 @@ class FrontController extends Controller
                 ]);
             }
 
-            UrlGen::where('uuid', request()->cookie('urlgenUUID'))->delete();
+            UrlGen::where('uuid', request()->cookie('SmartURLShortenerUUID'))->delete();
             DB::commit();
             return response()->json(['status' => 'success', 'message' => 'Your history has been deleted successfully']);
         } catch (\Exception $e) {
@@ -67,10 +67,10 @@ class FrontController extends Controller
 
         $data = [
             "long_url" => $request->longUrl,
-            "short_url" => 'https://urlgen.io/' . $uniqueId,
+            "short_url" => config('app.short_url_domain') . $uniqueId,
             "unique_id" => $uniqueId,
             "ip" => $request->ip(),
-            "uuid" => request()->cookie('urlgenUUID'),
+            "uuid" => request()->cookie('SmartURLShortenerUUID'),
             "user_id" => @Auth::user()->id
         ];
 

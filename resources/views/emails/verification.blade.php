@@ -5,7 +5,7 @@
 </head>
 <body>
     <h2>Verify Your Email</h2>
-    <p>Thank you for signing up with URLGen! To complete the registration process, please click the link below:</p>
+    <p>Thank you for signing up with Smart URLs! To complete the registration process, please click the link below:</p>
 
     <p>
         <a href=""></a>

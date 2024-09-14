@@ -22,7 +22,7 @@
 
                       <!--Grid column-->
                       <div class="col-md-8 mb-md-0 mb-5">
-                          <h2 class="mb-3 text-center">Contact URLGEN</h2>
+                          <h2 class="mb-3 text-center">Contact Smart URL Shortener</h2>
 
 
                           <!--Section description-->

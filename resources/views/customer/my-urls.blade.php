@@ -1,6 +1,6 @@
   @extends('layouts.website')
   @section('meta')
-      <title>My URLGens</title>
+      <title>My Smart URLs</title>
   @stop
   @section('contents')
       <main class="customerArea">
@@ -10,7 +10,7 @@
                 $total = count($urls);
                 @endphp
                   <div class="d-flex justify-content-between content-header">
-                      <h1>My URLGens({{ $total }})</h1>
+                      <h1>My Smart URLs({{ $total }})</h1>
                   </div>
 
                   @if ($total)

@@ -16,6 +16,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'short_url_domain' => env('SHORT_URL_DOMAIN', 'example.com'),
     'IP_LOOK_UP_DOMAIN' => env('IP_LOOK_UP_DOMAIN', ''),
     'IP_LOOK_UP_TOKEN' => env('IP_LOOK_UP_TOKEN', ''),
     /*

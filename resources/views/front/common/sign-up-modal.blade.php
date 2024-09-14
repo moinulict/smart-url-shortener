@@ -44,9 +44,9 @@
                         <div class="invalid-feedback" id="password-error"></div>
                     </div>
                     <div class="mb-3">
-                        By clicking on “Create Account”, I agree to URLGen’s <a href="{{ url('/terms') }}">Terms &
+                        By clicking on “Create Account”, I agree to Smart URL Shortener's <a href="{{ url('/terms') }}">Terms &
                             Conditions</a> and
-                        <a href="{{ url('/privacy-policy') }}">Privacy Policy</a>.
+                        <a href="#">Privacy Policy</a>.
                     </div>
                     <div class="text-right">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"
